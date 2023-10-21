@@ -14,11 +14,24 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/pays')]
 class PaysController extends AbstractController
 {
-    #[Route('/', name: 'app_pays_index', methods: ['GET'])]
-    public function index(PaysRepository $paysRepository): Response
+    #[Route('/', name: 'app_pays_index', methods: ['GET', 'POST'])]
+    public function index(PaysRepository $paysRepository, EntityManagerInterface $entityManager, Request $request): Response
     {
+        $pay = new Pays();
+        $form = $this->createForm(PaysType::class, $pay);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($pay);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_pays_index', [], Response::HTTP_SEE_OTHER);
+        }
+
         return $this->render('pays/index.html.twig', [
             'pays' => $paysRepository->findAll(),
+            'pay' => $pay,
+            'form' => $form,
         ]);
     }
 

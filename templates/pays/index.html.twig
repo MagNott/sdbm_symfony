@@ -3,14 +3,20 @@
 {% block title %}Pays index{% endblock %}
 
 {% block body %}
-    <h1>Pays index</h1>
+  
+
+ {{ include('pays/_new.html.twig', {'button_label': 'Create'}) }}
+
+
+   <h1>Pays index</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>IdPays</th>
-                <th>NomPays</th>
-                <th>actions</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Continent</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -18,9 +24,12 @@
             <tr>
                 <td>{{ pay.idPays }}</td>
                 <td>{{ pay.nomPays }}</td>
+                <td>{{ pay.idContinent.nomContinent }}</td>
                 <td>
-                    <a href="{{ path('app_pays_show', {'idPays': pay.idPays}) }}">show</a>
+                    {# <a href="{{ path('app_pays_show', {'idPays': pay.idPays}) }}">show</a> #}
                     <a href="{{ path('app_pays_edit', {'idPays': pay.idPays}) }}">edit</a>
+                     <a href="{{ path('app_pays_delete', {'idPays': pay.idPays}) }}" onclick="return confirm('Êtes vous sûr de vouloir supprimer le pays ?" >delete</a>
+                      
                 </td>
             </tr>
         {% else %}
