@@ -26,6 +26,7 @@ class PaysType extends AbstractType
 
             ->add('idContinent', null, [
                 //Le 2eme ADD reçoit NULL en paramètre car c'est un COMBOX (==> Il faut laisser Symfony gérer)
+                'label' => 'Continent', // Cette ligne permet de personnaliser le label du champ
                 'attr' => [
                             'class' => 'form-control'
                             //On peut en ajouter tant qu'on veut
