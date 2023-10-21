@@ -1,0 +1,12 @@
+{# {% extends 'base.html.twig' %} #}
+
+{% block title %}<h2>Créer un nouveau Pays</h2>{% endblock %}
+
+{% block body %}
+    
+
+    {{ include('pays/_form.html.twig') }}
+
+    {#Désactivation du lien pour le retour à la vue index car intégré dedans #}
+    {# <a href="{{ path('app_pays_index') }}">back to list</a> #}
+{% endblock %}

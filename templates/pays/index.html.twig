@@ -3,14 +3,24 @@
 {% block title %}Pays index{% endblock %}
 
 {% block body %}
-    <h1>Pays index</h1>
+
+<div class="container">
+  
+{#Inclusion du formulaire de création dans la vue index#}
+ {{ include('pays/_new.html.twig', {'button_label': 'Create'}) }}
+
+
+
+   <h2>Pays index</h2>
+
 
     <table class="table">
         <thead>
             <tr>
-                <th>IdPays</th>
-                <th>NomPays</th>
-                <th>actions</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Continent</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -18,9 +28,19 @@
             <tr>
                 <td>{{ pay.idPays }}</td>
                 <td>{{ pay.nomPays }}</td>
+                <td>{{ pay.idContinent.nomContinent }}</td>
                 <td>
-                    <a href="{{ path('app_pays_show', {'idPays': pay.idPays}) }}">show</a>
-                    <a href="{{ path('app_pays_edit', {'idPays': pay.idPays}) }}">edit</a>
+                    {#Ici bouton inutile car le show ne montre rien de plus que ce qui est contenu dans le tableau#}
+                    {# <a href="{{ path('app_pays_show', {'idPays': pay.idPays}) }}">show</a> #}
+
+                    <a href="{{ path('app_pays_edit', {'idPays': pay.idPays}) }}"><button class="btn btn-info"> Modifier</button></a>
+
+                    {#Ici buton inutile car on s'est servit du bouton du formulaire#}
+                     {# <a href="{{ path('app_pays_delete', {'idPays': pay.idPays}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer le pays ?');" >delete</a> #}
+
+                     {#Ici c'est le bouton du formulaire pour supprimer#}
+                     {{ include('pays/_delete_form.html.twig') }}
+                      
                 </td>
             </tr>
         {% else %}
@@ -30,6 +50,11 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
 
-    <a href="{{ path('app_pays_new') }}">Create new</a>
+    {# Ici on enlève le button prévu de base car la fonction est commenté puisqu'on a mis son corps dans index()#}
+    {# <a href="{{ path('app_pays_new') }}">Create new</a> #}
+
 {% endblock %}
+
+{#Même si on a décommissionné des vues twig, on ne peut pas supprimer les fichiers car on y fait reférences dans index#}
