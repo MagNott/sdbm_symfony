@@ -14,16 +14,8 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/marque')]
 class MarqueController extends AbstractController
 {
-    #[Route('/', name: 'app_marque_index', methods: ['GET'])]
-    public function index(MarqueRepository $marqueRepository): Response
-    {
-        return $this->render('marque/index.html.twig', [
-            'marques' => $marqueRepository->findAll(),
-        ]);
-    }
-
-    #[Route('/new', name: 'app_marque_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    #[Route('/', name: 'app_marque_index', methods: ['GET', 'POST'])]
+    public function index(MarqueRepository $marqueRepository, EntityManagerInterface $entityManager, Request $request): Response
     {
         $marque = new Marque();
         $form = $this->createForm(MarqueType::class, $marque);
@@ -36,11 +28,32 @@ class MarqueController extends AbstractController
             return $this->redirectToRoute('app_marque_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('marque/new.html.twig', [
+        return $this->render('marque/index.html.twig', [
+            'marques' => $marqueRepository->findAll(),
             'marque' => $marque,
             'form' => $form,
         ]);
     }
+
+    // #[Route('/new', name: 'app_marque_new', methods: ['GET', 'POST'])]
+    // public function new(Request $request, EntityManagerInterface $entityManager): Response
+    // {
+    //     $marque = new Marque();
+    //     $form = $this->createForm(MarqueType::class, $marque);
+    //     $form->handleRequest($request);
+
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $entityManager->persist($marque);
+    //         $entityManager->flush();
+
+    //         return $this->redirectToRoute('app_marque_index', [], Response::HTTP_SEE_OTHER);
+    //     }
+
+    //     return $this->render('marque/new.html.twig', [
+    //         'marque' => $marque,
+    //         'form' => $form,
+    //     ]);
+    // }
 
     #[Route('/{idMarque}', name: 'app_marque_show', methods: ['GET'])]
     public function show(Marque $marque): Response
