@@ -14,16 +14,8 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/ticket')]
 class TicketController extends AbstractController
 {
-    #[Route('/', name: 'app_ticket_index', methods: ['GET'])]
-    public function index(TicketRepository $ticketRepository): Response
-    {
-        return $this->render('ticket/index.html.twig', [
-            'tickets' => $ticketRepository->findAll(),
-        ]);
-    }
-
-    #[Route('/new', name: 'app_ticket_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    #[Route('/', name: 'app_ticket_index', methods: ['GET', 'POST'])]
+    public function index(TicketRepository $ticketRepository, Request $request, EntityManagerInterface $entityManager) : Response
     {
         $ticket = new Ticket();
         $form = $this->createForm(TicketType::class, $ticket);
@@ -36,11 +28,32 @@ class TicketController extends AbstractController
             return $this->redirectToRoute('app_ticket_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('ticket/new.html.twig', [
+        return $this->render('ticket/index.html.twig', [
+            'tickets' => $ticketRepository->findAll(),
             'ticket' => $ticket,
             'form' => $form,
         ]);
     }
+
+    // #[Route('/new', name: 'app_ticket_new', methods: ['GET', 'POST'])]
+    // public function new(Request $request, EntityManagerInterface $entityManager): Response
+    // {
+    //     $ticket = new Ticket();
+    //     $form = $this->createForm(TicketType::class, $ticket);
+    //     $form->handleRequest($request);
+
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $entityManager->persist($ticket);
+    //         $entityManager->flush();
+
+    //         return $this->redirectToRoute('app_ticket_index', [], Response::HTTP_SEE_OTHER);
+    //     }
+
+    //     return $this->render('ticket/new.html.twig', [
+    //         'ticket' => $ticket,
+    //         'form' => $form,
+    //     ]);
+    // }
 
     #[Route('/{annee}', name: 'app_ticket_show', methods: ['GET'])]
     public function show(Ticket $ticket): Response

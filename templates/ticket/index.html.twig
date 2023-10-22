@@ -1,17 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ticket index{% endblock %}
+{% block title %}<h2>Ticket index</h2>{% endblock %}
 
 {% block body %}
-    <h1>Ticket index</h1>
+
+<div class='container'>
+
+{#Inclusion du formulaire de création dans la vue index#}
+ {{ include('ticket/_new.html.twig', {'button_label': 'Create'}) }}
+
 
     <table class="table">
         <thead>
             <tr>
-                <th>Annee</th>
-                <th>NumeroTicket</th>
-                <th>DateVente</th>
-                <th>actions</th>
+                <th>Année</th>
+                <th>Numero de ticket</th>
+                <th>Date de la vente</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,8 +26,12 @@
                 <td>{{ ticket.numeroTicket }}</td>
                 <td>{{ ticket.dateVente ? ticket.dateVente|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_ticket_show', {'annee': ticket.annee}) }}">show</a>
-                    <a href="{{ path('app_ticket_edit', {'annee': ticket.annee}) }}">edit</a>
+                    {# <a href="{{ path('app_ticket_show', {'annee': ticket.annee}) }}">show</a> #}
+
+                    <a href="{{ path('app_ticket_edit', {'annee': ticket.annee}) }}"><button class="btn btn-info">Modifier</button></a>
+
+                    {#Ici c'est le bouton du formulaire pour supprimer#}
+                     {{ include('ticket/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
@@ -33,5 +42,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_ticket_new') }}">Create new</a>
+    {# <a href="{{ path('app_ticket_new') }}">Create new</a> #}
+
+    </div>
 {% endblock %}

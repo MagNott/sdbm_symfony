@@ -38,7 +38,7 @@ class Ticket
      *
      * @ORM\Column(name="DATE_VENTE", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
-    private $dateVente = 'CURRENT_TIMESTAMP';
+    private $dateVente;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
