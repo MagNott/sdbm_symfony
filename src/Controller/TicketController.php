@@ -29,7 +29,8 @@ class TicketController extends AbstractController
         }
 
         return $this->render('ticket/index.html.twig', [
-            'tickets' => $ticketRepository->findAll(),
+            // La fonction array reverse permet d'afficher le tableau à l'envers
+            'tickets' => array_reverse($ticketRepository->findAll()),
             'ticket' => $ticket,
             'form' => $form,
         ]);

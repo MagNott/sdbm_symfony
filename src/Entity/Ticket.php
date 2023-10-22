@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -54,7 +55,7 @@ class Ticket
      *   }
      * )
      */
-    private $idArticle = array();
+    private $idArticle;
 
     /**
      * Constructor
@@ -62,6 +63,7 @@ class Ticket
     public function __construct()
     {
         $this->idArticle = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->dateVente = new DateTime();
     }
 
     public function getAnnee(): ?int
@@ -84,6 +86,21 @@ class Ticket
         $this->dateVente = $dateVente;
 
         return $this;
+    }
+
+    //ajout du setter de année
+    public function setAnnee(int $annee): self
+    {
+       $this->annee = $annee;
+       return $this;
+    }
+    
+
+    //ajout du setter de numero de ticket
+    public function setNumeroTicket(int $numero): self
+    {
+       $this->numeroTicket = $numero;
+       return $this;
     }
 
     /**

@@ -86,7 +86,7 @@ class Article
      *
      * @ORM\ManyToMany(targetEntity="Ticket", mappedBy="idArticle")
      */
-    private $annee = array();
+    private $annee;
 
     /**
      * Constructor

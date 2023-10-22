@@ -13,9 +13,9 @@ class TicketType extends AbstractType
     {
         $builder
             ->add('annee')
-            ->add('numeroTicket')
-            ->add('dateVente')
-            ->add('idArticle')
+            // ->add('numeroTicket')
+            // ->add('dateVente')
+            // ->add('idArticle')
         ;
     }
 
