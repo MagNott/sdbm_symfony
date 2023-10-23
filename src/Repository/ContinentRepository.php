@@ -30,15 +30,15 @@ class ContinentRepository extends ServiceEntityRepository
     public function getContinentArticleCount(): array
     {
         // Crée un QueryBuilder
-        $querybuilder = $this->createQueryBuilder('c');
+        $querybuilder = $this->createQueryBuilder('continent');
 
         // Construit la requête
-        $querybuilder->select('c.nom AS Continent')
-            ->addSelect('COUNT(m.id) AS Marque')
-            ->innerJoin('c.pays', 'p') // suppose que l'entité Continent a une relation 'pays'
-            ->innerJoin('p.marque', 'm') // suppose que l'entité Pays a une relation 'marque'
-            ->groupBy('c.id')
-            ->orderBy('Marque', 'DESC')
+        $querybuilder->select('continent.nomContinent AS nom')
+            ->addSelect('COUNT(marque.idMarque) AS marqueCount')
+            ->innerJoin('continent.pays', 'pays') // suppose que l'entité Continent a une relation 'pays'
+            ->innerJoin('pays.marques', 'marque') // suppose que l'entité Pays a une relation 'marque'
+            ->groupBy('continent.idContinent')
+            ->orderBy('marqueCount', 'DESC')
             ->setMaxResults(5);
 
         // Exécute la requête et obtient les résultats

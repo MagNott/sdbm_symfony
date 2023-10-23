@@ -3,28 +3,34 @@
 {% block title %}Hello MainController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<style>
+		.example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+		.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+	</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-    
-    <img src="{{ asset('images/biere.jpg') }}" alt="Photo stylisée d'une bière et de blé" />
+	<div class="example-wrapper">
+		<h1>Hello {{ controller_name }}! ✅</h1>
+
+		<img src="{{ asset('images/biere.jpg') }}" class="img-fluid" alt="Photo stylisée d'une bière et de blé"/>
 
 
-    {% for item in continents_bieres %}
-    <div>
-        <strong>Continent :</strong> {{ item.Continent }}
-        <strong>Nombre de bières :</strong> {{ item.Marque }}
-    </div>
-    {% endfor %}
-    
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/magnott/Workspace/AFPA PROJETS ET EXOS/14 - Symfony/sdbmsymfony/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/magnott/Workspace/AFPA PROJETS ET EXOS/14 - Symfony/sdbmsymfony/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
+		<table class="text center">
+			<th>Continent</th> 
+			<th>Nombre de bières</th>
+             <tbody> 
+			{% for item in continents_bieres %}
+                <tr>
+                    <td>{{ item.nom }}</td>
+                    <td>{{ item.marqueCount }}</td>
+                </tr>
+	{% endfor %}
+             </tbody>
+		</table>
+
+	This friendly message is coming from:
+	<ul>
+		<li>Your controller at <code><a href="{{ '/home/magnott/Workspace/AFPA PROJETS ET EXOS/14 - Symfony/sdbmsymfony/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
+		<li>Your template at <code><a href="{{ '/home/magnott/Workspace/AFPA PROJETS ET EXOS/14 - Symfony/sdbmsymfony/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
+	</ul>
 </div>
 {% endblock %}

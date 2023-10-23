@@ -38,15 +38,23 @@ class Marque
      */
     private $idFabricant;
 
+
+    // POUR LES STATS on s'assure que on a bien le inversed by marques (ref à $mrques qui est dans pays)
+    // c'est le bout de la chaine de nos stats donc on a pas besoin de faire plus
+
     /**
      * @var \Pays|null
      *
-     * @ORM\ManyToOne(targetEntity="Pays")
+     * @ORM\ManyToOne(targetEntity="Pays", inversedBy="marques")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="ID_PAYS", referencedColumnName="ID_PAYS")
      * })
      */
     private $idPays;
+
+
+     // FIN DES MODIFS POUR LES STATS   
+
 
     public function getIdMarque(): ?int
     {
