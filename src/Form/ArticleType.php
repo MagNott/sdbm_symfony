@@ -15,34 +15,49 @@ class ArticleType extends AbstractType
         $builder
             ->add('nomArticle', TextType::class, [
                 'attr' =>
-                ['class' => 'form-control form-control-sm']
+                [
+                    'class' => 'form-control form-control-sm',
+                    'required' => true,
+                ]
             ])
             ->add('prixAchat', TextType::class, [
                 'attr' =>
-                ['class' => 'form-control form-control-sm']
+                [
+                    'class' => 'form-control form-control-sm',
+                    'required' => true,
+                ]
             ])
             ->add('volume', TextType::class, [
                 'attr' =>
-                ['class' => 'form-control form-control-sm']
+                [
+                    'class' => 'form-control form-control-sm',
+                    'required' => true,
+                ]
             ])
             ->add('titrage', TextType::class, [
                 'attr' =>
-                ['class' => 'form-control form-control-sm']
+                [
+                    'class' => 'form-control form-control-sm',
+                    'required' => true,
+                ]
             ])
             ->add('idCouleur', null, [
                 'label' => 'Couleur',
                 'attr' =>
-                ['class' => 'form-control form-control-sm']
+                ['class' => 'form-select form-select-sm',]
             ])
             ->add('idMarque', null, [
                 'label' => 'Marque',
                 'attr' =>
-                ['class' => 'form-control form-control-sm']
+                [
+                    'class' => 'form-select form-select-sm',
+                    'required' => true,
+                ]
             ])
             ->add('idType', null, [
                 'label' => 'Type de bière',
                 'attr' =>
-                ['class' => 'form-control form-control-sm']
+                ['class' => 'form-select form-select-sm',]
             ])
             // ->add('annee', TextType::class, [
             //     'attr' =>

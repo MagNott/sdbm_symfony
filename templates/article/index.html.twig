@@ -8,10 +8,10 @@
 	<div class="container">
 		{{ include('article/_new.html.twig') }}
 
-		<h1>Article index</h1>
+		<h1 class="text-center shadow bg-warning-subtle">Liste des articles</h1>
 
 
-		<table class="table">
+		<table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
 			<thead>
 				<tr>
 					<th>Code
@@ -35,8 +35,8 @@
 						<td>{{ article.volume }}</td>
 						<td>{{ article.titrage }}</td>
 						<td>{{ article.idMarque.nomMarque }}</td>
-						<td>{{ article.idCouleur.nomCouleur ?? "<i>Pas de Couleur enregistrée</i>"}}</td>
-						<td>{{ article.idType.nomType ?? "<i>Pas de Type de bière enregistrée</i>" }}</td>
+						<td>{{ article.idCouleur.nomCouleur ?? "<i>-- NC --</i>"}}</td>
+						<td>{{ article.idType.nomType ?? "<i>-- NC --</i>" }}</td>
 						{#null coalescence avec ?? ça sert à donner une valeur là où il y a du null#}
 						<td
 							class="d-flex">
