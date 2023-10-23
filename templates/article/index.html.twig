@@ -1,43 +1,60 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article index{% endblock %}
+{% block title %}Article index
+{% endblock %}
+
 
 {% block body %}
-    <h1>Article index</h1>
+	<div class="container">
+		{{ include('article/_new.html.twig') }}
 
-    <div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Code </th>
-                <th>Nom</th>
-                <th>Prix</th>
-                <th>Volume</th>
-                <th>Titrage</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.idArticle }}</td>
-                <td>{{ article.nomArticle }}</td>
-                <td>{{ article.prixAchat }}</td>
-                <td>{{ article.volume }}</td>
-                <td>{{ article.titrage }}</td>
-                <td>
-                    <a href="{{ path('app_article_show', {'idArticle': article.idArticle}) }}">show</a>
-                    <a href="{{ path('app_article_edit', {'idArticle': article.idArticle}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    </div>
+		<h1>Article index</h1>
 
-    <a href="{{ path('app_article_new') }}">Create new</a>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Code
+					</th>
+					<th>Nom</th>
+					<th>Prix</th>
+					<th>Volume</th>
+					<th>Titrage</th>
+					<th>Marque</th>
+					<th>Couleur</th>
+					<th>Type de bière</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for article in articles %}
+					<tr>
+						<td>{{ article.idArticle }}</td>
+						<td>{{ article.nomArticle }}</td>
+						<td>{{ article.prixAchat }}</td>
+						<td>{{ article.volume }}</td>
+						<td>{{ article.titrage }}</td>
+						<td>{{ article.idMarque.nomMarque }}</td>
+						<td>{{ article.idCouleur.nomCouleur ?? "<i>Pas de Couleur enregistrée</i>"}}</td>
+						<td>{{ article.idType.nomType ?? "<i>Pas de Type de bière enregistrée</i>" }}</td>
+						{#null coalescence avec ?? ça sert à donner une valeur là où il y a du null#}
+						<td
+							class="d-flex">
+							{# <a href="{{ path('app_article_show', {'idArticle': article.idArticle}) }}">show</a> #}
+							<a href="{{ path('app_article_edit', {'idArticle': article.idArticle}) }}">
+								<button class="btn btn-info btn-sm bi bi-pencil-square m-1"></button>
+							</a>
+							{{ include('article/_delete_form.html.twig') }}
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="6">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	{# <a href="{{ path('app_article_new') }}">Create new</a> #}
 {% endblock %}

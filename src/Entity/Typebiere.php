@@ -45,5 +45,13 @@ class Typebiere
         return $this;
     }
 
-
+    public function __toString()
+    {
+        //C'est une méthode magique, ici on l'a surchargé, elle se voit pas de base
+        // pour permettre d'avoir une représentation textuelle de l'objet Type
+        return $this->nomType;
+        //On retourne le nom du Type courant
+        //le nomType fait référence à la variable privée de classe (d'instance) $nomType
+        // c'est grace a ce retour que l'on pourra remplir le combobox
+    }
 }
