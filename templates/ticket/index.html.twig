@@ -5,13 +5,14 @@
 {% block body %}
 
 <div class='container'>
-<h2>Liste des tickets</h2>
+
 {#IMPOSSIBLE DE LE FAIRE FCONTIONNER EN L4ETAT AVEC LA CLEF COMPOSITE - DU COUP JE VIRE LES MODIFS ET LES SUPPRESSIONS, ON FAIT QUE AFFICHER#}
 {#Inclusion du formulaire de création dans la vue index#}
  {# {{ include('ticket/_new.html.twig', {'button_label': 'Create'}) }} #}
 
+<h2 class="text-center shadow bg-warning-subtle">Liste des tickets</h2>
 
-    <table class="table">
+    <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
         <thead>
             <tr>
                 <th>Année</th>
@@ -26,7 +27,7 @@
                 <td>{{ ticket.annee }}</td>
                 <td>{{ ticket.numeroTicket }}</td>
                 <td>{{ ticket.dateVente ? ticket.dateVente|date('Y-m-d H:i:s') : '' }}</td>
-                {# <td> #}
+                {#<td class="d-flex"> #}
                     {# <a href="{{ path('app_ticket_show', {'annee': ticket.annee}) }}">show</a> #}
 
                     {# <a href="{{ path('app_ticket_edit', {'annee': ticket.annee}) }}"><button class="btn btn-info">Modifier</button></a> #}
@@ -42,8 +43,8 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
     {# <a href="{{ path('app_ticket_new') }}">Create new</a> #}
 
-    </div>
+    
 {% endblock %}

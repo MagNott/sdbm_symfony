@@ -28,6 +28,18 @@ class Continent
      */
     private $nomContinent;
 
+
+//TEST
+/**
+ * @ORM\OneToMany(targetEntity="Pays", mappedBy="continent")
+ */
+private $idPays;
+
+//TEST
+
+
+
+
     public function getIdContinent(): ?int
     {
         return $this->idContinent;
@@ -44,6 +56,11 @@ class Continent
 
         return $this;
     }
+
+
+ 
+    
+    
 
     public function __toString() {
         //C'est une méthode magique, ici on l'a surchargé, elle se voit pas de base

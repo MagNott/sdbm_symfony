@@ -16,7 +16,7 @@ class PaysType extends AbstractType
             ->add('nomPays', TextType::class, [
                 //En ajoutant le TextType::class le use s'est mis tout seul grâce à l'auto import de php namespace (l'extension)
                 'attr' => [
-                            'class' => 'form-control'
+                            'class' => 'form-control form-control-sm'
                             //On peut en ajouter tant qu'on veut
                             ]
             ] )
@@ -28,7 +28,7 @@ class PaysType extends AbstractType
                 //Le 2eme ADD reçoit NULL en paramètre car c'est un COMBOX (==> Il faut laisser Symfony gérer)
                 'label' => 'Continent', // Cette ligne permet de personnaliser le label du champ
                 'attr' => [
-                            'class' => 'form-control'
+                            'class' => 'select-control select-control-sm'
                             //On peut en ajouter tant qu'on veut
                             ]
             ])

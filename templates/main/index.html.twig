@@ -12,6 +12,14 @@
     <h1>Hello {{ controller_name }}! ✅</h1>
     
     <img src="{{ asset('images/biere.jpg') }}" alt="Photo stylisée d'une bière et de blé" />
+
+
+    {% for item in continents_bieres %}
+    <div>
+        <strong>Continent :</strong> {{ item.Continent }}
+        <strong>Nombre de bières :</strong> {{ item.Marque }}
+    </div>
+    {% endfor %}
     
     This friendly message is coming from:
     <ul>

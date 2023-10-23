@@ -1,13 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Continent{% endblock %}
+{% block title %}Modifier un Continent{% endblock %}
 
 {% block body %}
-    <h1>Edit Continent</h1>
 
-    {{ include('continent/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="container w-75 ">
+		<div class="card m-3 shadow bg-light">
+			<div class="card-header text-center bg-success-subtle bg-gradient">
+				<h1>Modifier un continent</h1>
+			</div>
+			<div class="card-body">
 
-    <a href="{{ path('app_continent_index') }}"><button class="btn btn-light">back to list</button></a>
+    {{ include('continent/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <div class="d-flex justify-content-end">
+
+    <a href="{{ path('app_continent_index') }}"><button class="btn btn-light">retour à la liste</button></a>
+      </div>
+	</div>
+  </div>
+</div>
 {# 
     {{ include('continent/_delete_form.html.twig') }} #}
 {% endblock %}

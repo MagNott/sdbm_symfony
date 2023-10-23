@@ -1,13 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Couleur{% endblock %}
+{% block title %}Modifier la couleur{% endblock %}
 
 {% block body %}
-    <h1>Edit Couleur</h1>
+    
+    <div class="container w-75 ">
+		<div class="card m-3 shadow bg-light">
+			<div class="card-header text-center bg-success-subtle bg-gradient">
+				<h1>Modifier une couleur</h1>
+			</div>
+			<div class="card-body">
 
-    {{ include('couleur/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('couleur/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <div class="d-flex justify-content-end">
 
-    <a href="{{ path('app_couleur_index') }}">back to list</a>
+    <button class="btn btn-light">retour à la liste</button>
+    		</div>
+			</div>
+		</div>
+	</div>
 
-    {{ include('couleur/_delete_form.html.twig') }}
+    {# {{ include('couleur/_delete_form.html.twig') }} #}
 {% endblock %}

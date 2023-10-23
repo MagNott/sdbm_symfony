@@ -21,6 +21,30 @@ class ContinentRepository extends ServiceEntityRepository
         parent::__construct($registry, Continent::class);
     }
 
+
+     /**
+     * Renvoie le nombre de marques de bières par continent
+     *
+     * @return array
+     */
+    public function getContinentArticleCount(): array
+    {
+        // Crée un QueryBuilder
+        $querybuilder = $this->createQueryBuilder('c');
+
+        // Construit la requête
+        $querybuilder->select('c.nom AS Continent')
+            ->addSelect('COUNT(m.id) AS Marque')
+            ->innerJoin('c.pays', 'p') // suppose que l'entité Continent a une relation 'pays'
+            ->innerJoin('p.marque', 'm') // suppose que l'entité Pays a une relation 'marque'
+            ->groupBy('c.id')
+            ->orderBy('Marque', 'DESC')
+            ->setMaxResults(5);
+
+        // Exécute la requête et obtient les résultats
+        return $querybuilder->getQuery()->getResult();
+    }
+
 //    /**
 //     * @return Continent[] Returns an array of Continent objects
 //     */

@@ -1,13 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Pays{% endblock %}
+{% block title %}Modifier un Pays{% endblock %}
 
 {% block body %}
-    <h1>Edit Pays</h1>
+    
+    <div class="container w-75 ">
+		<div class="card m-3 shadow bg-light">
+			<div class="card-header text-center bg-success-subtle bg-gradient">
+				<h1>Modifier un pays</h1>
+			</div>
+			<div class="card-body">
 
-    {{ include('pays/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('pays/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <div class="d-flex justify-content-end">
 
-    <a href="{{ path('app_pays_index') }}"><button class="btn btn-light">back to list</button></a>
-
-    {{ include('pays/_delete_form.html.twig') }}
+    <a href="{{ path('app_pays_index') }}"><button class="btn btn-light">retour à la liste</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+    {# {{ include('pays/_delete_form.html.twig') }} #}
 {% endblock %}

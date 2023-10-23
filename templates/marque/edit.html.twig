@@ -1,13 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Marque{% endblock %}
+{% block title %}Modifier une Marque{% endblock %}
 
 {% block body %}
     <h1>Edit Marque</h1>
+    <div class="container w-75 ">
+		<div class="card m-3 shadow bg-light">
+			<div class="card-header text-center bg-success-subtle bg-gradient">
+				<h1>Modifier une marque</h1>
+			</div>
+			<div class="card-body">
 
-    {{ include('marque/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('marque/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <div class="d-flex justify-content-end">
 
-    <a href="{{ path('app_marque_index') }}"><button class="btn btn-light">back to list</button></a>
-
+    <a href="{{ path('app_marque_index') }}"><button class="btn btn-light">retour à la liste</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
     {# {{ include('marque/_delete_form.html.twig') }} #}
 {% endblock %}

@@ -38,6 +38,21 @@ class Pays
      */
     private $idContinent;
 
+
+
+    
+//TEST
+
+/**
+ * @ORM\OneToMany(targetEntity="Marque", mappedBy="pays")
+ */
+private $idMarque;
+
+//FIN TEST
+
+
+
+
     public function getIdPays(): ?int
     {
         return $this->idPays;
@@ -66,6 +81,26 @@ class Pays
 
         return $this;
     }
+
+
+
+//TEST
+public function getIdMarque(): ?Marque
+{
+    return $this->idMarque;
+}
+
+public function setIdMarque(?Marque $idMarque): static
+{
+    $this->idMarque = $idMarque;
+
+    return $this;
+}   
+
+//FIN TEST
+
+
+
 
     public function __toString() {
         //C'est une méthode magique, ici on l'a surchargé, elle se voit pas de base
