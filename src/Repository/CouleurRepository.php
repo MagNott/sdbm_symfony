@@ -21,6 +21,36 @@ class CouleurRepository extends ServiceEntityRepository
         parent::__construct($registry, Couleur::class);
     }
 
+
+
+
+
+     /**
+     * Fonction permettant de compter combien de bière il y a par couleur
+     * Renvoie un tableau associatif montrant combien de bières sont associées à chaque couleur.
+     *
+     * @return array
+     */
+    public function getCouleurAndArticleCount(): array
+    {
+        // Crée un QueryBuilder
+        $querybuilder = $this->createQueryBuilder('couleur');
+
+        // Construit la requête
+        $querybuilder->select('couleur.nomCouleur AS nom')
+            ->addSelect('COUNT(article.idArticle) AS Nombre_de_bieres')
+            ->leftJoin('couleur.articles', 'article') //le.articles correspond à la propriété dans l'entité couleur
+            ->groupBy('couleur.idCouleur')
+            ->orderBy('Nombre_de_bieres', 'DESC');
+            
+        // Exécute la requête et obtient les résultats
+        return $querybuilder->getQuery()->getResult();
+    }
+
+
+   
+
+
 //    /**
 //     * @return Couleur[] Returns an array of Couleur objects
 //     */

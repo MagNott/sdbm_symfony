@@ -28,6 +28,24 @@ class Fabricant
      */
     private $nomFabricant;
 
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="Marque", mappedBy="idFabricant", cascade={"persist"}))
+     */
+    private $marques;
+
+
+    // on créé un constructeur à cause de pays pour que $pays puisse être valorisé par un objet tableau (vide à ce moment précis ducode)
+    public function __construct()
+    {
+        $this->marques = new ArrayCollection();
+    }
+
+
+
+    
+
     public function getIdFabricant(): ?int
     {
         return $this->idFabricant;

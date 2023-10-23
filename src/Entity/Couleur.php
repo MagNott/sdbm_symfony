@@ -28,6 +28,23 @@ class Couleur
      */
     private $nomCouleur;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="idCouleur", cascade={"persist"}))
+     */
+    private $articles;
+
+
+    // on créé un constructeur à cause de pays pour que $pays puisse être valorisé par un objet tableau (vide à ce moment précis ducode)
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
+
+
     public function getIdCouleur(): ?int
     {
         return $this->idCouleur;

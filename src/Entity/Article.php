@@ -54,7 +54,7 @@ class Article
     /**
      * @var \Couleur|null
      *
-     * @ORM\ManyToOne(targetEntity="Couleur")
+     * @ORM\ManyToOne(targetEntity="Couleur", inversedBy= "articles")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="ID_COULEUR", referencedColumnName="ID_COULEUR")
      * })
@@ -64,7 +64,7 @@ class Article
     /**
      * @var \Marque|null
      *
-     * @ORM\ManyToOne(targetEntity="Marque")
+     * @ORM\ManyToOne(targetEntity="Marque", inversedBy="articles")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="ID_MARQUE", referencedColumnName="ID_MARQUE")
      * })

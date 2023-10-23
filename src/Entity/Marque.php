@@ -31,7 +31,7 @@ class Marque
     /**
      * @var \Fabricant|null
      *
-     * @ORM\ManyToOne(targetEntity="Fabricant")
+     * @ORM\ManyToOne(targetEntity="Fabricant", inversedBy="marques")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="ID_FABRICANT", referencedColumnName="ID_FABRICANT")
      * })
@@ -51,6 +51,22 @@ class Marque
      * })
      */
     private $idPays;
+
+
+
+     /**
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="idMarque", cascade={"persist"}))
+     */
+    private $articles;
+
+
+    // on créé un constructeur à cause de pays pour que $pays puisse être valorisé par un objet tableau (vide à ce moment précis ducode)
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
+
 
 
      // FIN DES MODIFS POUR LES STATS   
