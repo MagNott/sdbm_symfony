@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article index
+{% block title %}{% trans %}Article index{% endtrans %}
 {% endblock %}
 
 
@@ -8,22 +8,21 @@
 	<div class="container">
 		{{ include('article/_new.html.twig') }}
 
-		<h2 class="text-center shadow bg-warning-subtle">Liste des articles</h2>
+		<h2 class="text-center shadow bg-warning-subtle">{% trans %}Liste des articles{% endtrans %}</h2>
 
 
 		<table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
 			<thead>
 				<tr>
-					<th>Code
-					</th>
-					<th>Nom</th>
-					<th>Prix</th>
-					<th>Volume</th>
-					<th>Titrage</th>
-					<th>Marque</th>
-					<th>Couleur</th>
-					<th>Type de bière</th>
-					<th>Actions</th>
+					<th>{% trans %}Code{% endtrans %}</th>
+					<th>{% trans %}Nom{% endtrans %}</th>
+					<th>{% trans %}Prix{% endtrans %}</th>
+					<th>{% trans %}Volume{% endtrans %}</th>
+					<th>{% trans %}Titrage{% endtrans %}</th>
+					<th>{% trans %}Marque{% endtrans %}</th>
+					<th>{% trans %}Couleur{% endtrans %}</th>
+					<th>{% trans %}Type de bière{% endtrans %}</th>
+					<th>{% trans %}Actions{% endtrans %}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -47,7 +46,7 @@
 					</tr>
 				{% else %}
 					<tr>
-						<td colspan="6">no records found</td>
+						<td colspan="6">{% trans %}no records found{% endtrans %}</td>
 					</tr>
 				{% endfor %}
 			</tbody>

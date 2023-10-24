@@ -13,7 +13,11 @@ class ContinentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nomContinent', TextType::class, ['attr'=> ['class' => 'form-control form-control-sm', 'require'=> true]]);
+            ->add('nomContinent', TextType::class, [
+                'label' => 'Nom',
+                'attr'=> [
+                    'class' => 'form-control form-control-sm', 'require'=> true
+                    ]]);
      }
 
     public function configureOptions(OptionsResolver $resolver): void

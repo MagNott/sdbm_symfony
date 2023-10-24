@@ -13,7 +13,11 @@ class FabricantType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nomFabricant', TextType::class, ['attr'=> ['class' => 'form-control form-control-sm', 'require'=> true]])
+            ->add('nomFabricant', TextType::class, [
+                'label' => 'Nom',
+                'attr'=> [
+                    'class' => 'form-control form-control-sm', 'require'=> true
+                    ]])
         ;
     }
 

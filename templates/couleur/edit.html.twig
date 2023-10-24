@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier la couleur{% endblock %}
+{% block title %}{% trans %}Modifier la couleur{% endtrans %}{% endblock %}
 
 {% block body %}
     
     <div class="container w-75 ">
 		<div class="card m-3 shadow bg-light">
 			<div class="card-header text-center bg-success-subtle bg-gradient">
-				<h1>Modifier une couleur</h1>
+				<h5>{% trans %}Modifier une couleur{% endtrans %}</h5>
 			</div>
 			<div class="card-body">
 
     {{ include('couleur/_form.html.twig', {'button_label': 'Modifier'}) }}
     <div class="d-flex justify-content-end">
 
-    <button class="btn btn-light">retour à la liste</button>
+    <button class="btn btn-light">{% trans %}retour à la liste{% endtrans %}</button>
     		</div>
 			</div>
 		</div>

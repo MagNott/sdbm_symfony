@@ -3,3 +3,9 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+    # ma_route:
+    # path: /{_locale}/ma-page
+    # controller: App\Controller\MaPageController::index
+    # requirements:
+    #     _locale: 'en|fr' # Cette ligne indique les locales autorisées

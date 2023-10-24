@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Pays index{% endblock %}
+{% block title %}{% trans %}Pays index{% endtrans %}{% endblock %}
 
 {% block body %}
 
@@ -14,10 +14,10 @@
     <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
         <thead>
             <tr>
-                <th>Code</th>
-                <th>Nom</th>
-                <th>Continent</th>
-                <th>Actions</th>
+                <th>{% trans %}Code{% endtrans %}</th>
+                <th>{% trans %}Nom{% endtrans %}</th>
+                <th>{% trans %}Continent{% endtrans %}</th>
+                <th>{% trans %}Actions{% endtrans %}</th>
             </tr>
         </thead>
         <tbody>
@@ -42,7 +42,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">{% trans %}no records found{% endtrans %}</td>
             </tr>
         {% endfor %}
         </tbody>

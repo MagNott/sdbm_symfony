@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier un Pays{% endblock %}
+{% block title %}{% trans %}Modifier un Pays{% endtrans %}{% endblock %}
 
 {% block body %}
     
     <div class="container w-75 ">
 		<div class="card m-3 shadow bg-light">
 			<div class="card-header text-center bg-success-subtle bg-gradient">
-				<h1>Modifier un pays</h1>
+				<h5>{% trans %}Modifier un pays{% endtrans %}</h5>
 			</div>
 			<div class="card-body">
 
     {{ include('pays/_form.html.twig', {'button_label': 'Modifier'}) }}
     <div class="d-flex justify-content-end">
 
-    <a href="{{ path('app_pays_index') }}"><button class="btn btn-light">retour à la liste</button>
+    <a href="{{ path('app_pays_index') }}"><button class="btn btn-light">{% trans %}retour à la liste{% endtrans %}</button>
 					</a>
 				</div>
 			</div>

@@ -15,6 +15,7 @@ class PaysType extends AbstractType
         $builder
             ->add('nomPays', TextType::class, [
                 //En ajoutant le TextType::class le use s'est mis tout seul grâce à l'auto import de php namespace (l'extension)
+                'label' => 'Nom',
                 'attr' => [
                             'class' => 'form-control form-control-sm'
                             //On peut en ajouter tant qu'on veut

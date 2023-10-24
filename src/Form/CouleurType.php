@@ -14,6 +14,7 @@ class CouleurType extends AbstractType
     {
         $builder
             ->add('nomCouleur', TextType::class, [
+                'label' => 'Nom',
                 'attr' =>
                 [
                     'class' => 'form-control form-control-sm',
