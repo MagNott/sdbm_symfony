@@ -74,7 +74,7 @@ class Article
     /**
      * @var \Typebiere|null
      *
-     * @ORM\ManyToOne(targetEntity="Typebiere")
+     * @ORM\ManyToOne(targetEntity="Typebiere", inversedBy="articles")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="ID_TYPE", referencedColumnName="ID_TYPE")
      * })

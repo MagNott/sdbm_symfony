@@ -23,7 +23,7 @@
                     <td>{{ item.nom }}</td>
                     <td>{{ item.marqueCount }}</td>
                 </tr>
-	{% endfor %}
+			{% endfor %}
              </tbody>
 		</table>
 
@@ -36,7 +36,7 @@
                     <td>{{ item.nom }}</td>
                     <td>{{ item.Nombre_de_bieres }}</td>
                 </tr>
-	{% endfor %}
+			{% endfor %}
              </tbody>
 		</table>
 
@@ -50,7 +50,21 @@
                     <td>{{ item.nom }}</td>
                     <td>{{ item.Nombre_de_bieres }}</td>
                 </tr>
-	{% endfor %}
+			{% endfor %}
+             </tbody>
+		</table>
+
+
+		<table class="text-center my-5">
+			<th>Types</th> 
+			<th>Nombre de bières</th>
+             <tbody> 
+			{% for item in lestypesbieres %}
+                <tr>
+                    <td>{{ item.nom }}</td>
+                    <td>{{ item.Nombre_de_bieres }}</td>
+                </tr>
+			{% endfor %}
              </tbody>
 		</table>
 
