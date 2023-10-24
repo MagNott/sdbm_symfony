@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Pays
@@ -28,15 +29,44 @@ class Pays
      */
     private $nomPays;
 
+    
+
+
+    // POUR LES STATS IL A FALLU RAJOUTER LE INVERSED BY ET POINTER SUR LA VARIABLE DE CLASSE DE L'ENTITE CONTINENT
+
     /**
      * @var \Continent|null
      *
-     * @ORM\ManyToOne(targetEntity="Continent")
+     * @ORM\ManyToOne(targetEntity="Continent", inversedBy="pays")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="ID_CONTINENT", referencedColumnName="ID_CONTINENT")
      * })
      */
     private $idContinent;
+
+
+    
+    //POUR LES STATS ICI ON RAJOUTE MARQUE POUR PREPARER LA RELATION
+    // on répercute ce qu'on a fait dans continent pour pays, la on le fait de pays pour marque
+    // $idPays pointe vers la variable de classe qui se trouve dans entity marque
+
+    /**
+     * @ORM\OneToMany(targetEntity="Marque", mappedBy="idPays")
+     */
+    private $marques;
+
+
+
+    // IL FAUT AUSSI FAIRE LE CONSTRUCTEUR
+    // TOUT CA C'EST LA FAUT A LA BASE DE DONNEE IMPORTEE
+    // Il faut faire le construct pour pouvoir valiroser marques avec un objet tableau (vide pour le moment)
+    public function __construct()
+    {
+        $this->marques = new ArrayCollection();
+    }
+
+    //FIN DES TRUCS POUR LES STATS
+
 
     public function getIdPays(): ?int
     {
@@ -66,6 +96,26 @@ class Pays
 
         return $this;
     }
+
+
+
+//TEST
+public function getIdMarque(): ?Marque
+{
+    return $this->idMarque;
+}
+
+public function setIdMarque(?Marque $idMarque): static
+{
+    $this->idMarque = $idMarque;
+
+    return $this;
+}   
+
+//FIN TEST
+
+
+
 
     public function __toString() {
         //C'est une méthode magique, ici on l'a surchargé, elle se voit pas de base

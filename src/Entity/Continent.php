@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Continent
@@ -28,6 +29,34 @@ class Continent
      */
     private $nomContinent;
 
+
+
+
+    // ICI C'EST POUR GERER LES STATS
+
+    
+    //Table continent est la base pour la requete "combien de marque par continent"
+    //on ajoute $pays pour avoir accès à la relation 
+    //on parametre sont ORM un OneToMany ET un mappedBy="idContinent" (on le branche a continent)
+    //$pays n'est pas idPays car on parle de tous les pays ici (un tableau de pays)
+
+    /**
+     * @ORM\OneToMany(targetEntity="Pays", mappedBy="idContinent", cascade={"persist"}))
+     */
+    private $pays;
+
+
+    // on créé un constructeur à cause de pays pour que $pays puisse être valorisé par un objet tableau (vide à ce moment précis ducode)
+    public function __construct()
+    {
+        $this->pays = new ArrayCollection();
+    }
+
+
+    // ICI C'EST LA FIN DE LA GESTION DES STATS
+
+
+
     public function getIdContinent(): ?int
     {
         return $this->idContinent;
@@ -44,6 +73,11 @@ class Continent
 
         return $this;
     }
+
+
+ 
+    
+    
 
     public function __toString() {
         //C'est une méthode magique, ici on l'a surchargé, elle se voit pas de base

@@ -1,11 +1,20 @@
 {# {% extends 'base.html.twig' %} #}
 
-{% block title %}New Continent{% endblock %}
+{# {% block title %}New Continent{% endblock %} #}
 
-{% block body %}
-    <h1>Create new Continent</h1>
+{# {% block body %} #}
+    <div class="container w-75 "> <div class="card m-3 shadow bg-light">
+		<div class="card-header text-center bg-success-subtle bg-gradient">
+			<h5>Ajouter un Continent</h5>
+		</div>
+
+		<div class="card-body">
 
     {{ include('continent/_form.html.twig') }}
 
+    </div>
+   </div>
+ </div>
+
     {# <a href="{{ path('app_continent_index') }}">back to list</a> #}
-{% endblock %}
+{# {% endblock %} #}

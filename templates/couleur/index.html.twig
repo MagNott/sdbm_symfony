@@ -1,15 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Couleur index{% endblock %}
+{% block title %}Liste des couleurs{% endblock %}
 
 {% block body %}
-    <h1>Couleur index</h1>
+   
+    <div class="container">
+		{{ include('couleur/_new.html.twig') }}
 
-    <table class="table">
+		<h2 class="text-center shadow bg-warning-subtle">Liste des couleurs</h2>
+
+
+    <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
         <thead>
             <tr>
-                <th>IdCouleur</th>
-                <th>NomCouleur</th>
+                <th>Id Couleur</th>
+                <th>Nom Couleur</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,9 +23,10 @@
             <tr>
                 <td>{{ couleur.idCouleur }}</td>
                 <td>{{ couleur.nomCouleur }}</td>
-                <td>
-                    <a href="{{ path('app_couleur_show', {'idCouleur': couleur.idCouleur}) }}">show</a>
-                    <a href="{{ path('app_couleur_edit', {'idCouleur': couleur.idCouleur}) }}">edit</a>
+                <td class="d-flex">
+                    {# <a href="{{ path('app_couleur_show', {'idCouleur': couleur.idCouleur}) }}">show</a> #}
+                    <a href="{{ path('app_couleur_edit', {'idCouleur': couleur.idCouleur}) }}"><button class="btn btn-info btn-sm bi bi-pencil-square m-1"></button></a>
+                {{ include('couleur/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
@@ -30,6 +36,7 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
 
-    <a href="{{ path('app_couleur_new') }}">Create new</a>
+    {# <a href="{{ path('app_couleur_new') }}">Ajouter</a> #}
 {% endblock %}

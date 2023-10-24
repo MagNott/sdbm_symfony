@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Fabricant
@@ -27,6 +28,24 @@ class Fabricant
      * @ORM\Column(name="NOM_FABRICANT", type="string", length=40, nullable=false)
      */
     private $nomFabricant;
+
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="Marque", mappedBy="idFabricant", cascade={"persist"}))
+     */
+    private $marques;
+
+
+    // on créé un constructeur à cause de pays pour que $pays puisse être valorisé par un objet tableau (vide à ce moment précis ducode)
+    public function __construct()
+    {
+        $this->marques = new ArrayCollection();
+    }
+
+
+
+    
 
     public function getIdFabricant(): ?int
     {

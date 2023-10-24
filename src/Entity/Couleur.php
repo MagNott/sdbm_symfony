@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Couleur
@@ -27,6 +28,23 @@ class Couleur
      * @ORM\Column(name="NOM_COULEUR", type="string", length=25, nullable=false)
      */
     private $nomCouleur;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="idCouleur", cascade={"persist"}))
+     */
+    private $articles;
+
+
+    // on créé un constructeur à cause de pays pour que $pays puisse être valorisé par un objet tableau (vide à ce moment précis ducode)
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
+
 
     public function getIdCouleur(): ?int
     {

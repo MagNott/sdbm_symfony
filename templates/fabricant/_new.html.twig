@@ -1,11 +1,18 @@
 {# {% extends 'base.html.twig' %} #}
 
-{% block title %}New Fabricant{% endblock %}
+{# {% block title %}New Fabricant{% endblock %}
 
-{% block body %}
-    <h1>Create new Fabricant</h1>
-
+{% block body %} #}
+    
+<div class="container w-75 "> <div class="card m-3 shadow bg-light">
+		<div class="card-header text-center bg-success-subtle bg-gradient">
+			<h5>Ajouter un Fabricant</h5>
+		</div>
+        <div class="card-body">
     {{ include('fabricant/_form.html.twig') }}
+    	</div>
+	</div>
+</div>
 
     {# <a href="{{ path('app_fabricant_index') }}">back to list</a> #}
-{% endblock %}
+{# {% endblock %} #}

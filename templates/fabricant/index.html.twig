@@ -8,10 +8,10 @@
 {#Inclusion du formulaire de création dans la vue index#}
 {{ include('fabricant/_new.html.twig', {'button_label': 'Create'}) }}
 
+<h2 class="text-center shadow bg-warning-subtle">Liste des fabricants</h2>
 
-    <h1>Fabricant index</h1>
 
-    <table class="table">
+    <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
         <thead>
             <tr>
                 <th>IdFabricant</th>
@@ -24,10 +24,10 @@
             <tr>
                 <td>{{ fabricant.idFabricant }}</td>
                 <td>{{ fabricant.nomFabricant }}</td>
-                <td>
+               <td class="d-flex">
                     {# <a href="{{ path('app_fabricant_show', {'idFabricant': fabricant.idFabricant}) }}">show</a> #}
 
-                    <a href="{{ path('app_fabricant_edit', {'idFabricant': fabricant.idFabricant}) }}"><button class="btn btn-info"> Modifier</button></a>
+                    <a href="{{ path('app_fabricant_edit', {'idFabricant': fabricant.idFabricant}) }}"><button class="btn btn-info btn-sm bi bi-pencil-square m-1"></button></a>
 
                      {{ include('fabricant/_delete_form.html.twig') }}
                 </td>

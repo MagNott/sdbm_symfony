@@ -1,13 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Fabricant{% endblock %}
+{% block title %}Modifier un Fabricant{% endblock %}
 
 {% block body %}
-    <h1>Edit Fabricant</h1>
+    
+
+    <div class="container w-75 ">
+		<div class="card m-3 shadow bg-light">
+			<div class="card-header text-center bg-success-subtle bg-gradient">
+				<h1>Modifier un fabricant</h1>
+			</div>
+			<div class="card-body">
 
     {{ include('fabricant/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="d-flex justify-content-end">
 
-    <a href="{{ path('app_fabricant_index') }}"><button class="btn btn-light">back to list</button></a>
-
+    <a href="{{ path('app_fabricant_index') }}"><button class="btn btn-light">retour à la liste</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
     {# {{ include('fabricant/_delete_form.html.twig') }} #}
 {% endblock %}

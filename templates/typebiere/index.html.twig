@@ -3,13 +3,18 @@
 {% block title %}Typebiere index{% endblock %}
 
 {% block body %}
-    <h1>Typebiere index</h1>
 
-    <table class="table">
+<div class="container">
+		{{ include('typebiere/_new.html.twig') }}
+
+    <h2 class="text-center shadow bg-warning-subtle">Liste des types de bières</h2>
+
+
+   <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
         <thead>
             <tr>
-                <th>IdType</th>
-                <th>NomType</th>
+                <th>Id Type</th>
+                <th>Type</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,9 +23,10 @@
             <tr>
                 <td>{{ typebiere.idType }}</td>
                 <td>{{ typebiere.nomType }}</td>
-                <td>
-                    <a href="{{ path('app_typebiere_show', {'idType': typebiere.idType}) }}">show</a>
-                    <a href="{{ path('app_typebiere_edit', {'idType': typebiere.idType}) }}">edit</a>
+                <td class="d-flex">
+                    {# <a href="{{ path('app_typebiere_show', {'idType': typebiere.idType}) }}">show</a> #}
+                    <a href="{{ path('app_typebiere_edit', {'idType': typebiere.idType}) }}"><button class="btn btn-info btn-sm bi bi-pencil-square m-1"></button></a>
+                {{ include('typebiere/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
@@ -30,6 +36,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_typebiere_new') }}">Create new</a>
+</div>
+    {# <a href="{{ path('app_typebiere_new') }}">Create new</a> #}
 {% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Marque
@@ -31,22 +32,46 @@ class Marque
     /**
      * @var \Fabricant|null
      *
-     * @ORM\ManyToOne(targetEntity="Fabricant")
+     * @ORM\ManyToOne(targetEntity="Fabricant", inversedBy="marques")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="ID_FABRICANT", referencedColumnName="ID_FABRICANT")
      * })
      */
     private $idFabricant;
 
+
+    // POUR LES STATS on s'assure que on a bien le inversed by marques (ref à $mrques qui est dans pays)
+    // c'est le bout de la chaine de nos stats donc on a pas besoin de faire plus
+
     /**
      * @var \Pays|null
      *
-     * @ORM\ManyToOne(targetEntity="Pays")
+     * @ORM\ManyToOne(targetEntity="Pays", inversedBy="marques")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="ID_PAYS", referencedColumnName="ID_PAYS")
      * })
      */
     private $idPays;
+
+
+
+     /**
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="idMarque", cascade={"persist"}))
+     */
+    private $articles;
+
+
+    // on créé un constructeur à cause de pays pour que $pays puisse être valorisé par un objet tableau (vide à ce moment précis ducode)
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
+
+
+
+     // FIN DES MODIFS POUR LES STATS   
+
 
     public function getIdMarque(): ?int
     {

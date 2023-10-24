@@ -14,16 +14,8 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/typebiere')]
 class TypebiereController extends AbstractController
 {
-    #[Route('/', name: 'app_typebiere_index', methods: ['GET'])]
-    public function index(TypebiereRepository $typebiereRepository): Response
-    {
-        return $this->render('typebiere/index.html.twig', [
-            'typebieres' => $typebiereRepository->findAll(),
-        ]);
-    }
-
-    #[Route('/new', name: 'app_typebiere_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    #[Route('/', name: 'app_typebiere_index', methods: ['GET', 'POST'])]
+    public function index(TypebiereRepository $typebiereRepository, EntityManagerInterface $entityManager, Request $request): Response
     {
         $typebiere = new Typebiere();
         $form = $this->createForm(TypebiereType::class, $typebiere);
@@ -35,12 +27,32 @@ class TypebiereController extends AbstractController
 
             return $this->redirectToRoute('app_typebiere_index', [], Response::HTTP_SEE_OTHER);
         }
-
-        return $this->render('typebiere/new.html.twig', [
+        return $this->render('typebiere/index.html.twig', [
+            'typebieres' => $typebiereRepository->findAll(),
             'typebiere' => $typebiere,
             'form' => $form,
         ]);
     }
+
+    // #[Route('/new', name: 'app_typebiere_new', methods: ['GET', 'POST'])]
+    // public function new(Request $request, EntityManagerInterface $entityManager): Response
+    // {
+    //     $typebiere = new Typebiere();
+    //     $form = $this->createForm(TypebiereType::class, $typebiere);
+    //     $form->handleRequest($request);
+
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $entityManager->persist($typebiere);
+    //         $entityManager->flush();
+
+    //         return $this->redirectToRoute('app_typebiere_index', [], Response::HTTP_SEE_OTHER);
+    //     }
+
+    //     return $this->render('typebiere/new.html.twig', [
+    //         'typebiere' => $typebiere,
+    //         'form' => $form,
+    //     ]);
+    // }
 
     #[Route('/{idType}', name: 'app_typebiere_show', methods: ['GET'])]
     public function show(Typebiere $typebiere): Response
