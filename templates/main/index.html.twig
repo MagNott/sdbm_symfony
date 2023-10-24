@@ -1,73 +1,144 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Hello MainController!
+{% endblock %}
 
 {% block body %}
 	<style>
-		.example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-		.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
 	</style>
-<h1 class="text-center my-5" >Société des Bières du Monde vous accueille sur son site !</h1>
+		<h1 class="text-center my-5">Société des Bières du Monde vous accueille sur son site !</h1>
 	<div class="example-wrapper">
+
+
+		<img
+		src="{{ asset('images/biere.jpg') }}" class="img-fluid" alt="Photo stylisée d'une bière et de blé"/>
+		</div>
+
+
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card my-4 mx-5 shadow bg-light">
+						<div class="card-header text-center">
+							<h5><strong>Classement des continents producteurs</h5></strong>
+						</div>
+						<div class="card-body">
+							<p class="card-text">
+								<table class="table table-light">
+									<tr class="table-light text-center">
+										<th>Continents</th>
+										<th>Nombre de bières</th>
+									</tr>
+									{% for item in continents_bieres %}
+										<tr class="table-light text-center">
+											<td>{{ item.nom }}</td>
+											<td>{{ item.marqueCount }}</td>
+										</tr>
+									{% endfor %}
+								</table>
+							</p>
+						</div>
+					</div>
+				</div>
+			
 		
 
-		<img src="{{ asset('images/biere.jpg') }}" class="img-fluid" alt="Photo stylisée d'une bière et de blé"/>
+
+		{# <div class="container text-center"> #}
+			{# <div class="row"> #}
+				<div class="col-md-6">
+					<div class="card my-4 mx-5 shadow bg-light">
+						<div class="card-header text-center">
+							<h5><strong>Classement des bières par couleurs</h5></strong>
+						</div>
+						<div class="card-body">
+							<p class="card-text">
+								<table class="table table-light">
+									<tr class="table-light text-center">
+										<th>Couleurs</th>
+										<th>Nombre de bièress</th>
+									</tr>
+									<tr>
+										{% for item in couleurs_bieres %}
+											<td>{{ item.nom }}</td>
+											<td>{{ item.Nombre_de_bieres }}</td>
+									</tr>
+									{% endfor %}
+								</table>
+							</p>
+						</div>
+					</div>
+				</div>
+		</div>
 
 
-		<table class="text-center my-5">
-			<th>Continent</th> 
-			<th>Nombre de bières</th>
-             <tbody> 
-			{% for item in continents_bieres %}
-                <tr>
-                    <td>{{ item.nom }}</td>
-                    <td>{{ item.marqueCount }}</td>
-                </tr>
-			{% endfor %}
-             </tbody>
-		</table>
-
-		<table class="text-center my-5">
-			<th>Couleurs</th> 
-			<th>Nombre de bières</th>
-             <tbody> 
-			{% for item in couleurs_bieres %}
-                <tr>
-                    <td>{{ item.nom }}</td>
-                    <td>{{ item.Nombre_de_bieres }}</td>
-                </tr>
-			{% endfor %}
-             </tbody>
-		</table>
-
-        
-		<table class="text-center my-5">
-			<th>Fabricants</th> 
-			<th>Nombre de bières</th>
-             <tbody> 
-			{% for item in fabricants_bieres %}
-                <tr>
-                    <td>{{ item.nom }}</td>
-                    <td>{{ item.Nombre_de_bieres }}</td>
-                </tr>
-			{% endfor %}
-             </tbody>
-		</table>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="card my-4 mx-5 shadow bg-light">
+							<div class="card-header text-center">
+								<h5><strong>TOP *5* des plus gros fabricants</h5></strong>
+							</div>
+							<div class="card-body">
+								<p class="card-text">
+									<table class="table table-light">
+									<tr class="table-light text-center">
+										<th>Fabricants</th>
+										<th>Nombre de bières</th>
+									</tr>
+										<tbody>
+											{% for item in fabricants_bieres %}
+												<tr>
+													<td>{{ item.nom }}</td>
+													<td>{{ item.Nombre_de_bieres }}</td>
+												</tr>
+											{% endfor %}
+										</tbody>
+									</table>
+								</p>
+							</div>
+						</div>
+					</div>
+				
 
 
-		<table class="text-center my-5">
-			<th>Types</th> 
-			<th>Nombre de bières</th>
-             <tbody> 
-			{% for item in lestypesbieres %}
-                <tr>
-                    <td>{{ item.nom }}</td>
-                    <td>{{ item.Nombre_de_bieres }}</td>
-                </tr>
-			{% endfor %}
-             </tbody>
-		</table>
+					{# <div class="container text-center"> #}
+						{# <div class="row"> #}
+							<div class="col-md-6">
+								<div class="card my-4 mx-5 shadow bg-light">
+									<div class="card-header text-center">
+										<h5><strong>TOP *5* des types de bières</h5></strong>
+									</div>
+									<div class="card-body">
+										<p class="card-text">
+											<table class="table table-light">
+												<tr class="table-light text-center">
+													<th>Types de bières</th>
+													<th>Nombre de bières</th>
+												</tr>
+												{% for item in lestypesbieres %}
+													<tr class="table-light text-center">
+														<td>{{ item.nom }}</td>
+														<td>{{ item.Nombre_de_bieres }}</td>
+													</tr>
+												{% endfor %}
+											</table>
+										</p>
+									</div>
+								</div>
+							</div>
+				</div>
 
-	
-</div>
-{% endblock %}
+
+
+					
+				{% endblock %}
