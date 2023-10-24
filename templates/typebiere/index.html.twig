@@ -1,21 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Typebiere index{% endblock %}
+{% block title %}{% trans %}Typebiere index{% endtrans %}{% endblock %}
 
 {% block body %}
 
 <div class="container">
 		{{ include('typebiere/_new.html.twig') }}
 
-    <h2 class="text-center shadow bg-warning-subtle">Liste des types de bières</h2>
+    <h2 class="text-center shadow bg-warning-subtle">{% trans %}Liste des types de bières{% endtrans %}</h2>
 
 
    <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
         <thead>
             <tr>
-                <th>Id Type</th>
-                <th>Type</th>
-                <th>actions</th>
+                <th>{% trans %}Id Type{% endtrans %}</th>
+                <th>{% trans %}Type{% endtrans %}</th>
+                <th>{% trans %}actions{% endtrans %}</th>
             </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">{% trans %}no records found{% endtrans %}</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!
+{% block title %}{% trans %}Hello MainController!{% endtrans %}
 {% endblock %}
 
 {% block body %}
@@ -16,7 +16,7 @@
 			padding: 2px 6px;
 		}
 	</style>
-		<h1 class="text-center my-5">Société des Bières du Monde vous accueille sur son site !</h1>
+		<h1 class="text-center my-5">{% trans %}Société des Bières du Monde vous accueille sur son site !{% endtrans %}</h1>
 	<div class="example-wrapper">
 
 
@@ -30,14 +30,14 @@
 				<div class="col-md-6">
 					<div class="card my-4 mx-5 shadow bg-light">
 						<div class="card-header text-center">
-							<h5><strong>Classement des continents producteurs</h5></strong>
+							<h5><strong>{% trans %}Classement des continents producteurs{% endtrans %}</h5></strong>
 						</div>
 						<div class="card-body">
 							<p class="card-text">
 								<table class="table table-light">
 									<tr class="table-light text-center">
-										<th>Continents</th>
-										<th>Nombre de bières</th>
+										<th>{% trans %}Continents{% endtrans %}</th>
+										<th>{% trans %}Nombre de bières{% endtrans %}</th>
 									</tr>
 									{% for item in continents_bieres %}
 										<tr class="table-light text-center">
@@ -59,14 +59,14 @@
 				<div class="col-md-6">
 					<div class="card my-4 mx-5 shadow bg-light">
 						<div class="card-header text-center">
-							<h5><strong>Classement des bières par couleurs</h5></strong>
+							<h5><strong>{% trans %}Classement des bières par couleurs{% endtrans %}</h5></strong>
 						</div>
 						<div class="card-body">
 							<p class="card-text">
 								<table class="table table-light">
 									<tr class="table-light text-center">
-										<th>Couleurs</th>
-										<th>Nombre de bièress</th>
+										<th>{% trans %}Couleurs{% endtrans %}</th>
+										<th>{% trans %}Nombre de bières{% endtrans %}</th>
 									</tr>
 									<tr>
 										{% for item in couleurs_bieres %}
@@ -86,14 +86,14 @@
 					<div class="col-md-6">
 						<div class="card my-4 mx-5 shadow bg-light">
 							<div class="card-header text-center">
-								<h5><strong>TOP *5* des plus gros fabricants</h5></strong>
+								<h5><strong>{% trans %}TOP *5* des plus gros fabricants{% endtrans %}</h5></strong>
 							</div>
 							<div class="card-body">
 								<p class="card-text">
 									<table class="table table-light">
 									<tr class="table-light text-center">
-										<th>Fabricants</th>
-										<th>Nombre de bières</th>
+										<th>{% trans %}Fabricants{% endtrans %}</th>
+										<th>{% trans %}Nombre de bières{% endtrans %}</th>
 									</tr>
 										<tbody>
 											{% for item in fabricants_bieres %}
@@ -116,14 +116,14 @@
 							<div class="col-md-6">
 								<div class="card my-4 mx-5 shadow bg-light">
 									<div class="card-header text-center">
-										<h5><strong>TOP *5* des types de bières</h5></strong>
+										<h5><strong>{% trans %}TOP *5* des types de bières{% endtrans %}</h5></strong>
 									</div>
 									<div class="card-body">
 										<p class="card-text">
 											<table class="table table-light">
 												<tr class="table-light text-center">
-													<th>Types de bières</th>
-													<th>Nombre de bières</th>
+													<th>{% trans %}Types de bières{% endtrans %}</th>
+													<th>{% trans %}Nombre de bières{% endtrans %}</th>
 												</tr>
 												{% for item in lestypesbieres %}
 													<tr class="table-light text-center">
@@ -137,8 +137,4 @@
 								</div>
 							</div>
 				</div>
-
-
-
-					
-				{% endblock %}
+               {% endblock %}

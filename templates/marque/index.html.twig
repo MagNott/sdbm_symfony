@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Marque index{% endblock %}
+{% block title %}{% trans %}Marque index{% endtrans %}{% endblock %}
 
 {% block body %}
 
@@ -9,17 +9,17 @@
 {{ include('marque/_new.html.twig', {'button_label': 'Create'}) }}
 
 
-    <h2 class="text-center shadow bg-warning-subtle">Liste des marques</h2>
+    <h2 class="text-center shadow bg-warning-subtle">{% trans %}Liste des marques{% endtrans %}</h2>
 
 
     <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
         <thead>
             <tr>
-                <th>Code</th>
-                <th>Nom</th>
-                <th>Pays</th>
-                <th>Fabricants</th>
-                <th>Actions</th>
+                <th>{% trans %}Code{% endtrans %}</th>
+                <th>{% trans %}Nom{% endtrans %}</th>
+                <th>{% trans %}Pays{% endtrans %}</th>
+                <th>{% trans %}Fabricants{% endtrans %}</th>
+                <th>{% trans %}Actions{% endtrans %}</th>
             </tr>
         </thead>
         <tbody>
@@ -28,7 +28,7 @@
                 <td>{{ marque.idMarque }}</td>
                 <td>{{ marque.nomMarque }}</td>
                 <td>{{ marque.idPays.nomPays }}</td>
-                <td>{{ marque.idFabricant.nomFabricant ?? "<i>Pas de Fabricant</i>" }}</td>
+                <td>{{ marque.idFabricant.nomFabricant ?? "<i>Pas de Fabricant</i>"|trans|raw }}</td>
                 {#null coalescence avec ?? ça sert à donner une valeur là où il y a du null#}
                 <td class="d-flex">
                     {# <a href="{{ path('app_marque_show', {'idMarque': marque.idMarque}) }}">show</a> #}
@@ -38,7 +38,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">{% trans %}no records found{% endtrans %}</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier un Continent{% endblock %}
+{% block title %}{% trans %}Modifier un Continent{% endtrans %}{% endblock %}
 
 {% block body %}
 
     <div class="container w-75 ">
 		<div class="card m-3 shadow bg-light">
 			<div class="card-header text-center bg-success-subtle bg-gradient">
-				<h1>Modifier un continent</h1>
+				<h1>{% trans %}Modifier un continent{% {% endblock %}trans %}</h1>
 			</div>
 			<div class="card-body">
 
-    {{ include('continent/_form.html.twig', {'button_label': 'Modifier'}) }}
+    {{ include('continent/_form.html.twig', {'button_label': 'Modifier'}|trans ) }}
     <div class="d-flex justify-content-end">
 
-    <a href="{{ path('app_continent_index') }}"><button class="btn btn-light">retour à la liste</button></a>
+    <a href="{{ path('app_continent_index') }}"><button class="btn btn-light">{% trans %}retour à la liste{% endtrans %}</button></a>
       </div>
 	</div>
   </div>

@@ -1,21 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des couleurs{% endblock %}
+{% block title %}{% trans %}Liste des couleurs{% endtrans %}{% endblock %}
 
 {% block body %}
    
     <div class="container">
 		{{ include('couleur/_new.html.twig') }}
 
-		<h2 class="text-center shadow bg-warning-subtle">Liste des couleurs</h2>
+		<h2 class="text-center shadow bg-warning-subtle">{% trans %}Liste des couleurs{% endtrans %}</h2>
 
 
     <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
         <thead>
             <tr>
-                <th>Id Couleur</th>
-                <th>Nom Couleur</th>
-                <th>actions</th>
+                <th>{% trans %}Id Couleur{% endtrans %}</th>
+                <th>{% trans %}Nom Couleur{% endtrans %}</th>
+                <th>{% trans %}actions{% endtrans %}</th>
             </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">{% trans %}no records found{% endtrans %}</td>
             </tr>
         {% endfor %}
         </tbody>

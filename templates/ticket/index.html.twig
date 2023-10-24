@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}<h2>Ticket index</h2>{% endblock %}
+{% block title %}<h2>{% trans %}Ticket index{% endtrans %}</h2>{% endblock %}
 
 {% block body %}
 
@@ -10,14 +10,14 @@
 {#Inclusion du formulaire de création dans la vue index#}
  {# {{ include('ticket/_new.html.twig', {'button_label': 'Create'}) }} #}
 
-<h2 class="text-center shadow bg-warning-subtle">Liste des tickets</h2>
+<h2 class="text-center shadow bg-warning-subtle">{% trans %}Liste des tickets{% endtrans %}</h2>
 
     <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
         <thead>
             <tr>
-                <th>Année</th>
-                <th>Numero de ticket</th>
-                <th>Date de la vente</th>
+                <th>{% trans %}Année{% endtrans %}</th>
+                <th>{% trans %}Numero de ticket{% endtrans %}</th>
+                <th>{% trans %}Date de la vente{% endtrans %}</th>
                 {# <th>Actions</th> #}
             </tr>
         </thead>
@@ -38,7 +38,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">{% trans %}no records found{% endtrans %}</td>
             </tr>
         {% endfor %}
         </tbody>
