@@ -118,7 +118,7 @@
         <target>Edit a Brand</target>
       </trans-unit>
       <trans-unit id="yQ87f68" resname="Edit Marque">
-        <source>Modifier une Marque</source>
+        <source>Edit Marque</source>
         <target>Edit a Brand</target>
       </trans-unit>
       <trans-unit id="p4kkiNi" resname="Modifier une marque">
@@ -158,11 +158,11 @@
         <target>Name of brand</target>
       </trans-unit>
       <trans-unit id="U0M9PNE" resname="back to list">
-        <source>retour la à liste</source>
+        <source>back to list</source>
         <target>back to list</target>
       </trans-unit>
       <trans-unit id="JiEhxTc" resname="edit">
-        <source>modifier</source>
+        <source>edit</source>
         <target>edit</target>
       </trans-unit>
       <trans-unit id="sUMwmYZ" resname="Ajouter une Marque">
@@ -190,7 +190,7 @@
         <target>Add a Country</target>
       </trans-unit>
       <trans-unit id="bsCT5N2" resname="Edit Ticket">
-        <source>Modifier un Ticket</source>
+        <source>Edit Ticket</source>
         <target>Edit a Ticket</target>
       </trans-unit>
       <trans-unit id="JS92h3h" resname="Modifier un ticket">
@@ -228,6 +228,110 @@
       <trans-unit id="X95TLSa" resname="Ajouter un Type de bière">
         <source>Ajouter un Type de bière</source>
         <target>Add a Beer Type</target>
+      </trans-unit>
+      <trans-unit id="BQC24Sl" resname="Continent liste">
+        <source>Continent liste</source>
+        <target>Continent list</target>
+      </trans-unit>
+      <trans-unit id="apE2Qqc" resname="Liste des continents">
+        <source>Liste des continents</source>
+        <target>Continent list</target>
+      </trans-unit>
+      <trans-unit id="9ZSIxxt" resname="Hello MainController!">
+        <source>Hello MainController!</source>
+        <target>Hello MainController!</target>
+      </trans-unit>
+      <trans-unit id="_bUOs_e" resname="Société des Bières du Monde vous accueille sur son site !">
+        <source>Société des Bières du Monde vous accueille sur son site !</source>
+        <target>Société des Bières du Monde welcomes you to its website!</target>
+      </trans-unit>
+      <trans-unit id="3EFqKVd" resname="Classement des continents producteurs">
+        <source>Classement des continents producteurs</source>
+        <target>Ranking of Producing Continents</target>
+      </trans-unit>
+      <trans-unit id="Y9wuaiI" resname="Nombre de bières">
+        <source>Nombre de bières</source>
+        <target>Number of beers</target>
+      </trans-unit>
+      <trans-unit id="C.x_7VA" resname="Classement des bières par couleurs">
+        <source>Classement des bières par couleurs</source>
+        <target>Classification of beers by colour</target>
+      </trans-unit>
+      <trans-unit id="kWx7tmx" resname="TOP *5* des plus gros fabricants">
+        <source>TOP *5* des plus gros fabricants</source>
+        <target>TOP *5* Largest Manufacturers</target>
+      </trans-unit>
+      <trans-unit id="YnakRxS" resname="TOP *5* des types de bières">
+        <source>TOP *5* des types de bières</source>
+        <target>TOP *5* types of beers</target>
+      </trans-unit>
+      <trans-unit id="8s0.pIm" resname="Types de bières">
+        <source>Types de bières</source>
+        <target>Types of beers</target>
+      </trans-unit>
+      <trans-unit id="_OSHYq8" resname="&lt;i&gt;Pas de Fabricant&lt;/i&gt;">
+        <source>&lt;i&gt;Pas de Fabricant&lt;/i&gt;</source>
+        <target><![CDATA[<i>No manufacturer</i>]]></target>
+      </trans-unit>
+      <trans-unit id="CSX27GY" resname="Typebiere index">
+        <source>Typebiere index</source>
+        <target>Type list</target>
+      </trans-unit>
+      <trans-unit id="FH8H6B7" resname="Liste des types de bières">
+        <source>Liste des types de bières</source>
+        <target>List of beer types</target>
+      </trans-unit>
+      <trans-unit id="GmK3bFB" resname="Id Type">
+        <source>Id Type</source>
+        <target>Code</target>
+      </trans-unit>
+      <trans-unit id="uq3fcPt" resname="Type">
+        <source>Type</source>
+        <target>Type</target>
+      </trans-unit>
+      <trans-unit id="wpkGDG." resname="Modifier un article">
+        <source>Modifier un article</source>
+        <target>Edit an article</target>
+      </trans-unit>
+      <trans-unit id="F7QsEmm" resname="Article index">
+        <source>Article index</source>
+        <target>List of articles</target>
+      </trans-unit>
+      <trans-unit id="juojpGE" resname="Liste des articles">
+        <source>Liste des articles</source>
+        <target>List of articles</target>
+      </trans-unit>
+      <trans-unit id="VMMk9sE" resname="Prix">
+        <source>Prix</source>
+        <target>Price</target>
+      </trans-unit>
+      <trans-unit id="sQ_5Ztc" resname="Volume">
+        <source>Volume</source>
+        <target>Volume</target>
+      </trans-unit>
+      <trans-unit id="VBQWthX" resname="Titrage">
+        <source>Titrage</source>
+        <target>Titration</target>
+      </trans-unit>
+      <trans-unit id="RVByChh" resname="Couleur">
+        <source>Couleur</source>
+        <target>Color</target>
+      </trans-unit>
+      <trans-unit id="sSL1nAD" resname="Type de bière">
+        <source>Type de bière</source>
+        <target>Type of beer</target>
+      </trans-unit>
+      <trans-unit id=".EL7OjQ" resname="Ajouter un article">
+        <source>Ajouter un article</source>
+        <target>Add an article</target>
+      </trans-unit>
+      <trans-unit id="m4LgMej" resname="Modifier un Continent">
+        <source>Modifier un Continent</source>
+        <target>Edit a continent</target>
+      </trans-unit>
+      <trans-unit id="muinhnL" resname="Modifier">
+        <source>Modifier</source>
+        <target>Edit</target>
       </trans-unit>
     </body>
   </file>

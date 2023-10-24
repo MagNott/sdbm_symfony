@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier un article
+{% block title %}{% trans %}Modifier un article{% endtrans %}
 {% endblock %}
 
 {% block body %}
@@ -8,13 +8,13 @@
 	<div class="container w-75 ">
 		<div class="card m-3 shadow bg-light">
 			<div class="card-header text-center bg-success-subtle bg-gradient">
-				<h1>Modifier un article</h1>
+				<h1>{% trans %}Modifier un article{% endtrans %}</h1>
 			</div>
 			<div class="card-body">
-				{{ include('article/_form.html.twig', {'button_label': 'Modifier'}) }}
+				{{ include('article/_form.html.twig', {'button_label': 'Modifier un article'}) }}
 				<div class="d-flex justify-content-end">
 					<a href="{{ path('app_article_index') }}">
-						<button class="btn btn-light">retour à la liste</button>
+						<button class="btn btn-light">{% trans %}retour à la liste{% endtrans %}</button>
 					</a>
 				</div>
 			</div>

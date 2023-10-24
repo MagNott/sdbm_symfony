@@ -7,11 +7,11 @@
     <div class="container w-75 ">
 		<div class="card m-3 shadow bg-light">
 			<div class="card-header text-center bg-success-subtle bg-gradient">
-				<h1>{% trans %}Modifier un continent{% {% endblock %}trans %}</h1>
+				<h1>{% trans %}Modifier un Continent{% endtrans %}</h1>
 			</div>
 			<div class="card-body">
 
-    {{ include('continent/_form.html.twig', {'button_label': 'Modifier'}|trans ) }}
+    {{ include('continent/_form.html.twig', {'button_label': 'Modifier'}) }}
     <div class="d-flex justify-content-end">
 
     <a href="{{ path('app_continent_index') }}"><button class="btn btn-light">{% trans %}retour à la liste{% endtrans %}</button></a>

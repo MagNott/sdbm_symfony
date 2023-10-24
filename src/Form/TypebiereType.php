@@ -14,6 +14,7 @@ class TypebiereType extends AbstractType
     {
         $builder
             ->add('nomType', TextType::class, [
+                'label' => 'Nom',
                 'attr' =>
                 [
                     'class' => 'form-control form-control-sm',

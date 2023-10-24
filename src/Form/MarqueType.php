@@ -14,13 +14,14 @@ class MarqueType extends AbstractType
     {
         $builder
             ->add('nomMarque', TextType::class, [                
+                'label' => 'Nom',
                 'attr' => [
                             'class' => 'form-control form-control-sm'
                            ]
             ])
 
             ->add('idFabricant', null, [
-                'label' => 'Fabricant',
+                'label' => 'Fabricants',
                 'attr' => [
                            'class' => 'form-select form-select-sm'
                           ]

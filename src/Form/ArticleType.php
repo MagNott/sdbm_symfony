@@ -14,6 +14,7 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('nomArticle', TextType::class, [
+                'label' => 'Nom',
                 'attr' =>
                 [
                     'class' => 'form-control form-control-sm',
@@ -21,6 +22,7 @@ class ArticleType extends AbstractType
                 ]
             ])
             ->add('prixAchat', TextType::class, [
+                'label' => 'Prix',
                 'attr' =>
                 [
                     'class' => 'form-control form-control-sm',
