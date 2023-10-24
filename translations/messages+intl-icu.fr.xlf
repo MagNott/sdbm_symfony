@@ -75,7 +75,7 @@
       </trans-unit>
       <trans-unit id="Kw3N1AA" resname="actions">
         <source>actions</source>
-        <target>actions</target>
+        <target>Actions</target>
       </trans-unit>
       <trans-unit id="D5lam8." resname="no records found">
         <source>no records found</source>
@@ -103,11 +103,11 @@
       </trans-unit>
       <trans-unit id="CiHALPL" resname="IdFabricant">
         <source>IdFabricant</source>
-        <target>IdFabricant</target>
+        <target>Code</target>
       </trans-unit>
       <trans-unit id="v2oslAm" resname="NomFabricant">
         <source>NomFabricant</source>
-        <target>NomFabricant</target>
+        <target>Nom Fabricant</target>
       </trans-unit>
       <trans-unit id="etRvUkL" resname="Ajouter un Fabricant">
         <source>Ajouter un Fabricant</source>
