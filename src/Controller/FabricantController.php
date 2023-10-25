@@ -34,6 +34,12 @@ class FabricantController extends AbstractController
              // Exécute la requête pour réellement sauvegarder l'objet dans la base de données.
             $entityManager->flush();
 
+            // Génération du message d'information
+          $this->addFlash(
+            'success',
+            'Le Fabricant a bien été ajouté !'
+          );
+
             // Redirige l'utilisateur vers la même route pour éviter les doubles soumissions de formulaire.
             // Utilise le code HTTP 303 (SEE_OTHER) pour indiquer qu'une autre ressource doit être récupérée.
             return $this->redirectToRoute('app_fabricant_index', [], Response::HTTP_SEE_OTHER);
@@ -84,6 +90,13 @@ class FabricantController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
+             // Génération du message d'information
+          $this->addFlash(
+            'info',
+            'Le Fabricant a bien été modifié !'
+          );
+
+
             return $this->redirectToRoute('app_fabricant_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -99,6 +112,12 @@ class FabricantController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$fabricant->getIdFabricant(), $request->request->get('_token'))) {
             $entityManager->remove($fabricant);
             $entityManager->flush();
+
+            // Génération du message d'information
+          $this->addFlash(
+            'danger',
+            'Le Fabricant a bien été supprimé !'
+          );
         }
 
         return $this->redirectToRoute('app_fabricant_index', [], Response::HTTP_SEE_OTHER);

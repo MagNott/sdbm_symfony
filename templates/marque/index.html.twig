@@ -6,10 +6,10 @@
 
 <div class="container">
 {#Inclusion du formulaire de création dans la vue index#}
-{{ include('marque/_new.html.twig', {'button_label': 'Create'}) }}
+{{ include('marque/_new.html.twig',{'button_label': 'Ajouter'|trans}) }}
 
 
-    <h2 class="text-center shadow bg-warning-subtle">{% trans %}Liste des marques{% endtrans %}</h2>
+    <h2 class="text-center shadow bg-warning-subtle mt-5">{% trans %}Liste des marques{% endtrans %}</h2>
 
 
     <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">

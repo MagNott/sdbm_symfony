@@ -29,7 +29,7 @@ class PaysType extends AbstractType
                 //Le 2eme ADD reçoit NULL en paramètre car c'est un COMBOX (==> Il faut laisser Symfony gérer)
                 'label' => 'Continent', // Cette ligne permet de personnaliser le label du champ
                 'attr' => [
-                            'class' => 'select-control select-control-sm'
+                            'class' => 'form-select form-select-sm'
                             //On peut en ajouter tant qu'on veut
                             ]
             ])

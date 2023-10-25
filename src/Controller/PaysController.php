@@ -29,6 +29,12 @@ class PaysController extends AbstractController
             $entityManager->persist($pay);
             $entityManager->flush();
 
+            // Génération du message d'information
+          $this->addFlash(
+            'success',
+            'Le Pays a bien été ajouté !'
+          );
+
             return $this->redirectToRoute('app_pays_index', [], Response::HTTP_SEE_OTHER);
         }
         //Fin d'intégration du code de ajout dans index
@@ -80,6 +86,12 @@ class PaysController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
+// Génération du message d'information
+$this->addFlash(
+    'info',
+    'Le Pays a bien été modifié !'
+  );
+
             return $this->redirectToRoute('app_pays_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -96,6 +108,12 @@ class PaysController extends AbstractController
             $entityManager->remove($pay);
             $entityManager->flush();
         }
+
+        // Génération du message d'information
+        $this->addFlash(
+            'danger',
+            'Le Pays a bien été supprimé !'
+          );
 
         return $this->redirectToRoute('app_pays_index', [], Response::HTTP_SEE_OTHER);
     }

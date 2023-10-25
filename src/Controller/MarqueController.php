@@ -25,6 +25,12 @@ class MarqueController extends AbstractController
             $entityManager->persist($marque);
             $entityManager->flush();
 
+            // Génération du message d'information
+          $this->addFlash(
+            'success',
+            'La Marque a bien été ajoutée !'
+          );
+
             return $this->redirectToRoute('app_marque_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -72,6 +78,12 @@ class MarqueController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
+// Génération du message d'information
+$this->addFlash(
+    'info',
+    'La Marque a bien été modifiée !'
+  );
+
             return $this->redirectToRoute('app_marque_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -88,6 +100,12 @@ class MarqueController extends AbstractController
             $entityManager->remove($marque);
             $entityManager->flush();
         }
+
+// Génération du message d'information
+$this->addFlash(
+    'danger',
+    'La Marque a bien été supprimée !'
+  );
 
         return $this->redirectToRoute('app_marque_index', [], Response::HTTP_SEE_OTHER);
     }

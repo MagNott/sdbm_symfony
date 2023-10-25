@@ -7,9 +7,9 @@
 <div class="container">
   
 {#Inclusion du formulaire de création dans la vue index#}
- {{ include('pays/_new.html.twig', {'button_label': 'Create'}) }}
+ {{ include('pays/_new.html.twig',{'button_label': 'Ajouter'|trans}) }}
 
- <h2 class="text-center shadow bg-warning-subtle">Liste des pays</h2>
+ <h2 class="text-center shadow bg-warning-subtle mt-5">Liste des pays</h2>
 
     <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
         <thead>

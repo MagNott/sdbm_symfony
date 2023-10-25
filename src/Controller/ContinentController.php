@@ -25,6 +25,13 @@ class ContinentController extends AbstractController
             $entityManager->persist($continent);
             $entityManager->flush();
 
+            
+          // Génération du message d'information
+          $this->addFlash(
+            'success',
+            'Le Continent a bien été ajouté !'
+          );
+
             return $this->redirectToRoute('app_continent_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -72,6 +79,14 @@ class ContinentController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
+
+          // Génération du message d'information
+          $this->addFlash(
+            'info',
+            'Le Continent a bien été modifié !'
+          );
+
+
             return $this->redirectToRoute('app_continent_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -87,6 +102,13 @@ class ContinentController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$continent->getIdContinent(), $request->request->get('_token'))) {
             $entityManager->remove($continent);
             $entityManager->flush();
+
+            
+          // Génération du message d'information
+          $this->addFlash(
+            'danger',
+            'Le Continent a bien été supprimé !'
+          );
         }
 
         return $this->redirectToRoute('app_continent_index', [], Response::HTTP_SEE_OTHER);

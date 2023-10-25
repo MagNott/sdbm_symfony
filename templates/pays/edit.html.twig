@@ -11,10 +11,10 @@
 			</div>
 			<div class="card-body">
 
-    {{ include('pays/_form.html.twig', {'button_label': 'Modifier'}) }}
+    {{ include('pays/_form.html.twig', {'button_label': 'Modifier'|trans}) }}
     <div class="d-flex justify-content-end">
 
-    <a href="{{ path('app_pays_index') }}"><button class="btn btn-light">{% trans %}retour à la liste{% endtrans %}</button>
+    <a href="{{ path('app_pays_index') }}"><button class="btn btn-warning sm">{% trans %}retour à la liste{% endtrans %}</button>
 					</a>
 				</div>
 			</div>

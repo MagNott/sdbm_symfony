@@ -25,6 +25,13 @@ class TypebiereController extends AbstractController
             $entityManager->persist($typebiere);
             $entityManager->flush();
 
+            // Génération du message d'information
+          $this->addFlash(
+            'success',
+            'Le Type de bière a bien été ajouté !'
+          );
+
+
             return $this->redirectToRoute('app_typebiere_index', [], Response::HTTP_SEE_OTHER);
         }
         return $this->render('typebiere/index.html.twig', [
@@ -71,6 +78,12 @@ class TypebiereController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
+             // Génération du message d'information
+          $this->addFlash(
+            'info',
+            'Le Type de bière a bien été modifié !'
+          );
+
             return $this->redirectToRoute('app_typebiere_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -86,6 +99,12 @@ class TypebiereController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$typebiere->getIdType(), $request->request->get('_token'))) {
             $entityManager->remove($typebiere);
             $entityManager->flush();
+
+            // Génération du message d'information
+          $this->addFlash(
+            'danger',
+            'Le Type de bière a bien été supprimé !'
+          );
         }
 
         return $this->redirectToRoute('app_typebiere_index', [], Response::HTTP_SEE_OTHER);

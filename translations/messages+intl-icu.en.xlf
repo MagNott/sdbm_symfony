@@ -329,9 +329,13 @@
         <source>Modifier un Continent</source>
         <target>Edit a continent</target>
       </trans-unit>
-      <trans-unit id="muinhnL" resname="Modifier">
+      <trans-unit id="QuN2BLY" resname="Modifier">
         <source>Modifier</source>
         <target>Edit</target>
+      </trans-unit>
+      <trans-unit id="APnFM0V" resname="Ajouter">
+        <source>Ajouter</source>
+        <target>Add</target>
       </trans-unit>
     </body>
   </file>

@@ -333,6 +333,14 @@
         <source>Modifier un continent</source>
         <target>Modifier un continent</target>
       </trans-unit>
+      <trans-unit id="QuN2BLY" resname="Modifier">
+        <source>Modifier</source>
+        <target>Modifier</target>
+      </trans-unit>
+      <trans-unit id="APnFM0V" resname="Ajouter">
+        <source>Ajouter</source>
+        <target>Ajouter</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

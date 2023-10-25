@@ -25,6 +25,12 @@ class CouleurController extends AbstractController
             $entityManager->persist($couleur);
             $entityManager->flush();
 
+               // Génération du message d'information
+          $this->addFlash(
+            'success',
+            'La Couleur a bien été ajoutée !'
+          );
+
             return $this->redirectToRoute('app_couleur_index', [], Response::HTTP_SEE_OTHER);
         }
         return $this->render('couleur/index.html.twig', [
@@ -71,6 +77,14 @@ class CouleurController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
+
+            
+          // Génération du message d'information
+          $this->addFlash(
+            'info',
+            'La Couleur a bien été modifiée !'
+          );
+
             return $this->redirectToRoute('app_couleur_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -86,9 +100,16 @@ class CouleurController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$couleur->getIdCouleur(), $request->request->get('_token'))) {
             $entityManager->remove($couleur);
             $entityManager->flush();
+
+             // Génération du message d'information
+          $this->addFlash(
+            'danger',
+            'La Couleur a bien été supprimée !'
+          );
         }
 
         return $this->redirectToRoute('app_couleur_index', [], Response::HTTP_SEE_OTHER);
     }
 
+    
 }
