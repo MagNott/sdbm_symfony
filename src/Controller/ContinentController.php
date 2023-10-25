@@ -10,12 +10,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route('/continent')]
 class ContinentController extends AbstractController
 {
     #[Route('/', name: 'app_continent_index', methods: ['GET', 'POST'])]
-    public function index(ContinentRepository $continentRepository, EntityManagerInterface $entityManager, Request $request): Response
+    public function index(ContinentRepository $continentRepository, EntityManagerInterface $entityManager, Request $request, TranslatorInterface $translator): Response
     {
         $continent = new Continent();
         $form = $this->createForm(ContinentType::class, $continent);
@@ -29,7 +30,7 @@ class ContinentController extends AbstractController
           // Génération du message d'information
           $this->addFlash(
             'success',
-            'Le Continent a bien été ajouté !'
+            $translator->trans('Le Continent a bien été ajouté !')
           );
 
             return $this->redirectToRoute('app_continent_index', [], Response::HTTP_SEE_OTHER);
@@ -71,7 +72,7 @@ class ContinentController extends AbstractController
     }
 
     #[Route('/{idContinent}/edit', name: 'app_continent_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Continent $continent, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Continent $continent, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
     {
         $form = $this->createForm(ContinentType::class, $continent);
         $form->handleRequest($request);
@@ -83,7 +84,7 @@ class ContinentController extends AbstractController
           // Génération du message d'information
           $this->addFlash(
             'info',
-            'Le Continent a bien été modifié !'
+            $translator->trans('Le Continent a bien été modifié !')
           );
 
 
@@ -97,7 +98,7 @@ class ContinentController extends AbstractController
     }
 
     #[Route('/{idContinent}', name: 'app_continent_delete', methods: ['POST'])]
-    public function delete(Request $request, Continent $continent, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, Continent $continent, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
     {
         if ($this->isCsrfTokenValid('delete'.$continent->getIdContinent(), $request->request->get('_token'))) {
             $entityManager->remove($continent);
@@ -107,7 +108,7 @@ class ContinentController extends AbstractController
           // Génération du message d'information
           $this->addFlash(
             'danger',
-            'Le Continent a bien été supprimé !'
+            $translator->trans('Le Continent a bien été supprimé !')
           );
         }
 

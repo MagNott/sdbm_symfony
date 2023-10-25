@@ -10,12 +10,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route('/pays')]
 class PaysController extends AbstractController
 {
     #[Route('/', name: 'app_pays_index', methods: ['GET', 'POST'])]
-    public function index(PaysRepository $paysRepository, EntityManagerInterface $entityManager, Request $request): Response
+    public function index(PaysRepository $paysRepository, EntityManagerInterface $entityManager, Request $request, TranslatorInterface $translator): Response
 
     //Le typage ici n'est pas un typage primitif comme en php, c'est un typage de classe
     {
@@ -32,7 +33,7 @@ class PaysController extends AbstractController
             // Génération du message d'information
           $this->addFlash(
             'success',
-            'Le Pays a bien été ajouté !'
+            $translator->trans('Le Pays a bien été ajouté !')
           );
 
             return $this->redirectToRoute('app_pays_index', [], Response::HTTP_SEE_OTHER);
@@ -78,7 +79,7 @@ class PaysController extends AbstractController
     }
 
     #[Route('/{idPays}/edit', name: 'app_pays_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Pays $pay, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Pays $pay, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
     {
         $form = $this->createForm(PaysType::class, $pay);
         $form->handleRequest($request);
@@ -89,7 +90,7 @@ class PaysController extends AbstractController
 // Génération du message d'information
 $this->addFlash(
     'info',
-    'Le Pays a bien été modifié !'
+    $translator->trans('Le Pays a bien été modifié !')
   );
 
             return $this->redirectToRoute('app_pays_index', [], Response::HTTP_SEE_OTHER);
@@ -102,7 +103,7 @@ $this->addFlash(
     }
 
     #[Route('/{idPays}', name: 'app_pays_delete', methods: ['POST'])]
-    public function delete(Request $request, Pays $pay, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, Pays $pay, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
     {
         if ($this->isCsrfTokenValid('delete'.$pay->getIdPays(), $request->request->get('_token'))) {
             $entityManager->remove($pay);
@@ -112,7 +113,7 @@ $this->addFlash(
         // Génération du message d'information
         $this->addFlash(
             'danger',
-            'Le Pays a bien été supprimé !'
+            $translator->trans('Le Pays a bien été supprimé !')
           );
 
         return $this->redirectToRoute('app_pays_index', [], Response::HTTP_SEE_OTHER);

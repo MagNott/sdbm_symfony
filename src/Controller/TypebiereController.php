@@ -10,12 +10,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
+
+
 
 #[Route('/typebiere')]
 class TypebiereController extends AbstractController
 {
     #[Route('/', name: 'app_typebiere_index', methods: ['GET', 'POST'])]
-    public function index(TypebiereRepository $typebiereRepository, EntityManagerInterface $entityManager, Request $request): Response
+    public function index(TypebiereRepository $typebiereRepository, EntityManagerInterface $entityManager, Request $request, TranslatorInterface $translator): Response
     {
         $typebiere = new Typebiere();
         $form = $this->createForm(TypebiereType::class, $typebiere);
@@ -28,7 +31,7 @@ class TypebiereController extends AbstractController
             // Génération du message d'information
           $this->addFlash(
             'success',
-            'Le Type de bière a bien été ajouté !'
+            $translator->trans('Le Type de bière a bien été ajouté !')
           );
 
 
@@ -70,7 +73,7 @@ class TypebiereController extends AbstractController
     }
 
     #[Route('/{idType}/edit', name: 'app_typebiere_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Typebiere $typebiere, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Typebiere $typebiere, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
     {
         $form = $this->createForm(TypebiereType::class, $typebiere);
         $form->handleRequest($request);
@@ -81,7 +84,7 @@ class TypebiereController extends AbstractController
              // Génération du message d'information
           $this->addFlash(
             'info',
-            'Le Type de bière a bien été modifié !'
+            $translator->trans('Le Type de bière a bien été modifié !')
           );
 
             return $this->redirectToRoute('app_typebiere_index', [], Response::HTTP_SEE_OTHER);
@@ -94,7 +97,7 @@ class TypebiereController extends AbstractController
     }
 
     #[Route('/{idType}', name: 'app_typebiere_delete', methods: ['POST'])]
-    public function delete(Request $request, Typebiere $typebiere, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, Typebiere $typebiere, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
     {
         if ($this->isCsrfTokenValid('delete'.$typebiere->getIdType(), $request->request->get('_token'))) {
             $entityManager->remove($typebiere);
@@ -103,7 +106,7 @@ class TypebiereController extends AbstractController
             // Génération du message d'information
           $this->addFlash(
             'danger',
-            'Le Type de bière a bien été supprimé !'
+            $translator->trans('Le Type de bière a bien été supprimé !')
           );
         }
 

@@ -375,6 +375,90 @@
         <source>We are sorry, but you do not have access to this page or ressource.</source>
         <target>We are sorry, but you do not have access to this page or ressource.</target>
       </trans-unit>
+      <trans-unit id="oJJJGxY" resname="L'Article a bien été ajouté !">
+        <source>L'Article a bien été ajouté !</source>
+        <target>The Article has been added!</target>
+      </trans-unit>
+      <trans-unit id="jhSHbo0" resname="L'Article a bien été modifié !">
+        <source>L'Article a bien été modifié !</source>
+        <target>The Article has been modified!</target>
+      </trans-unit>
+      <trans-unit id="whismy5" resname="L'Article a bien été supprimé !">
+        <source>L'Article a bien été supprimé !</source>
+        <target>The article has been deleted!</target>
+      </trans-unit>
+      <trans-unit id="Yae3ywC" resname="Le Continent a bien été ajouté !">
+        <source>Le Continent a bien été ajouté !</source>
+        <target>The Continent has been added!</target>
+      </trans-unit>
+      <trans-unit id="D0fD.lf" resname="Le Continent a bien été modifié !">
+        <source>Le Continent a bien été modifié !</source>
+        <target>The Continent has been modified!</target>
+      </trans-unit>
+      <trans-unit id="BP0Jx6d" resname="Le Continent a bien été supprimé !">
+        <source>Le Continent a bien été supprimé !</source>
+        <target>The Continent has been deleted!</target>
+      </trans-unit>
+      <trans-unit id="QLommvJ" resname="La Couleur a bien été ajoutée !">
+        <source>La Couleur a bien été ajoutée !</source>
+        <target>The Color has been added !</target>
+      </trans-unit>
+      <trans-unit id="1S8djvm" resname="La Couleur a bien été modifiée !">
+        <source>La Couleur a bien été modifiée !</source>
+        <target>The Color has been modified !</target>
+      </trans-unit>
+      <trans-unit id="co8X5Kv" resname="La Couleur a bien été supprimée !">
+        <source>La Couleur a bien été supprimée !</source>
+        <target>The Color has been deleted !</target>
+      </trans-unit>
+      <trans-unit id="KsfWcez" resname="Le Fabricant a bien été ajouté !">
+        <source>Le Fabricant a bien été ajouté !</source>
+        <target>The Manufacturer has been added !</target>
+      </trans-unit>
+      <trans-unit id="IA8px_7" resname="Le Fabricant a bien été modifié !">
+        <source>Le Fabricant a bien été modifié !</source>
+        <target>_The Manufacturer has been modified !</target>
+      </trans-unit>
+      <trans-unit id="7zb.eru" resname="Le Fabricant a bien été supprimé !">
+        <source>Le Fabricant a bien été supprimé !</source>
+        <target>The Manufacturer has been deleted !</target>
+      </trans-unit>
+      <trans-unit id="73YJN6b" resname="La Marque a bien été ajoutée !">
+        <source>La Marque a bien été ajoutée !</source>
+        <target>The Brand has been added !</target>
+      </trans-unit>
+      <trans-unit id="Z3.14.f" resname="La Marque a bien été modifiée !">
+        <source>La Marque a bien été modifiée !</source>
+        <target>The Brand has been modified !</target>
+      </trans-unit>
+      <trans-unit id="CM_c5yS" resname="La Marque a bien été supprimée !">
+        <source>La Marque a bien été supprimée !</source>
+        <target>The Brand has been deleted !</target>
+      </trans-unit>
+      <trans-unit id="yjh71AR" resname="Le Pays a bien été ajouté !">
+        <source>Le Pays a bien été ajouté !</source>
+        <target>The Country has been added !</target>
+      </trans-unit>
+      <trans-unit id="w2fJ2s_" resname="Le Pays a bien été modifié !">
+        <source>Le Pays a bien été modifié !</source>
+        <target>The Country has been modified !</target>
+      </trans-unit>
+      <trans-unit id="MOAe86u" resname="Le Pays a bien été supprimé !">
+        <source>Le Pays a bien été supprimé !</source>
+        <target>The Country has been deleted !</target>
+      </trans-unit>
+      <trans-unit id="CeSsWJR" resname="Le Type de bière a bien été ajouté !">
+        <source>Le Type de bière a bien été ajouté !</source>
+        <target>The Type of beer has been added !</target>
+      </trans-unit>
+      <trans-unit id="iZ5NAaR" resname="Le Type de bière a bien été modifié !">
+        <source>Le Type de bière a bien été modifié !</source>
+        <target>The Type of beer has been modified !</target>
+      </trans-unit>
+      <trans-unit id="sbSMRqZ" resname="Le Type de bière a bien été supprimé !">
+        <source>Le Type de bière a bien été supprimé !</source>
+        <target>The Type of beer has been deleted !</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

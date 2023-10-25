@@ -10,12 +10,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route('/fabricant')]
 class FabricantController extends AbstractController
 {
     #[Route('/', name: 'app_fabricant_index', methods: ['GET', 'POST'])]
-    public function index(FabricantRepository $fabricantRepository, EntityManagerInterface $entityManager, Request $request): Response
+    public function index(FabricantRepository $fabricantRepository, EntityManagerInterface $entityManager, Request $request, TranslatorInterface $translator): Response
     {
         $fabricant = new Fabricant();
 
@@ -37,7 +38,7 @@ class FabricantController extends AbstractController
             // Génération du message d'information
           $this->addFlash(
             'success',
-            'Le Fabricant a bien été ajouté !'
+            $translator->trans('Le Fabricant a bien été ajouté !')
           );
 
             // Redirige l'utilisateur vers la même route pour éviter les doubles soumissions de formulaire.
@@ -82,7 +83,7 @@ class FabricantController extends AbstractController
     }
 
     #[Route('/{idFabricant}/edit', name: 'app_fabricant_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Fabricant $fabricant, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Fabricant $fabricant, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
     {
         $form = $this->createForm(FabricantType::class, $fabricant);
         $form->handleRequest($request);
@@ -93,7 +94,7 @@ class FabricantController extends AbstractController
              // Génération du message d'information
           $this->addFlash(
             'info',
-            'Le Fabricant a bien été modifié !'
+            $translator->trans('Le Fabricant a bien été modifié !')
           );
 
 
@@ -107,7 +108,7 @@ class FabricantController extends AbstractController
     }
 
     #[Route('/{idFabricant}', name: 'app_fabricant_delete', methods: ['POST'])]
-    public function delete(Request $request, Fabricant $fabricant, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, Fabricant $fabricant, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
     {
         if ($this->isCsrfTokenValid('delete'.$fabricant->getIdFabricant(), $request->request->get('_token'))) {
             $entityManager->remove($fabricant);
@@ -116,7 +117,7 @@ class FabricantController extends AbstractController
             // Génération du message d'information
           $this->addFlash(
             'danger',
-            'Le Fabricant a bien été supprimé !'
+            $translator->trans('Le Fabricant a bien été supprimé !')
           );
         }
 

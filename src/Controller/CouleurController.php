@@ -10,12 +10,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route('/couleur')]
 class CouleurController extends AbstractController
 {
     #[Route('/', name: 'app_couleur_index', methods: ['GET', 'POST'])]
-    public function index(CouleurRepository $couleurRepository, EntityManagerInterface $entityManager, Request $request): Response
+    public function index(CouleurRepository $couleurRepository, EntityManagerInterface $entityManager, Request $request, TranslatorInterface $translator): Response
     {
         $couleur = new Couleur();
         $form = $this->createForm(CouleurType::class, $couleur);
@@ -28,7 +29,7 @@ class CouleurController extends AbstractController
                // Génération du message d'information
           $this->addFlash(
             'success',
-            'La Couleur a bien été ajoutée !'
+            $translator->trans('La Couleur a bien été ajoutée !')
           );
 
             return $this->redirectToRoute('app_couleur_index', [], Response::HTTP_SEE_OTHER);
@@ -69,7 +70,7 @@ class CouleurController extends AbstractController
     }
 
     #[Route('/{idCouleur}/edit', name: 'app_couleur_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Couleur $couleur, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Couleur $couleur, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
     {
         $form = $this->createForm(CouleurType::class, $couleur);
         $form->handleRequest($request);
@@ -82,7 +83,7 @@ class CouleurController extends AbstractController
           // Génération du message d'information
           $this->addFlash(
             'info',
-            'La Couleur a bien été modifiée !'
+            $translator->trans('La Couleur a bien été modifiée !')
           );
 
             return $this->redirectToRoute('app_couleur_index', [], Response::HTTP_SEE_OTHER);
@@ -95,7 +96,7 @@ class CouleurController extends AbstractController
     }
 
     #[Route('/{idCouleur}', name: 'app_couleur_delete', methods: ['POST'])]
-    public function delete(Request $request, Couleur $couleur, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, Couleur $couleur, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
     {
         if ($this->isCsrfTokenValid('delete'.$couleur->getIdCouleur(), $request->request->get('_token'))) {
             $entityManager->remove($couleur);
@@ -104,7 +105,7 @@ class CouleurController extends AbstractController
              // Génération du message d'information
           $this->addFlash(
             'danger',
-            'La Couleur a bien été supprimée !'
+            $translator->trans('La Couleur a bien été supprimée !')
           );
         }
 
