@@ -1,0 +1,32 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+    	
+		<h1 class="text-center my-5">{% trans %}Page not found{% endtrans %}</h1>
+	<div class="example-wrapper">
+
+
+		<img
+		src="{{ asset('images/bottleBeer.jpg') }}" class="img-fluid" alt="Photo d'une bouteille de bière vide"/>
+		</div>
+
+    <p class="text-center my-5">
+        {% trans %}The requested page couldn't be located. Checkout for any URL
+        misspelling or{% endtrans %} 
+        <a href="{{ path('app_main') }}"><button class="btn btn-warning sm">{% trans %}return to the homepage{% endtrans %}</button></a>
+    </p>
+{% endblock %}

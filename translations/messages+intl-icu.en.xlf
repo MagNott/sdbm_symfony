@@ -337,6 +337,44 @@
         <source>Ajouter</source>
         <target>Add</target>
       </trans-unit>
+      <trans-unit id="pGmrTKT" resname="Page not found">
+        <source>Page not found</source>
+        <target>Page not found</target>
+      </trans-unit>
+      <trans-unit id="r0FL2I2" resname="The requested page couldn't be located. Checkout for any URL&#10;        misspelling or">
+        <source>The requested page couldn't be located. Checkout for any URL
+        misspelling or</source>
+        <target>The requested page couldn't be located. Checkout for any URL
+        misspelling or</target>
+      </trans-unit>
+      <trans-unit id="yBAbsaq" resname="return to the homepage">
+        <source>return to the homepage</source>
+        <target>return to the homepage</target>
+      </trans-unit>
+      <trans-unit id="xv8Y1_j" resname="We are sorry, but you do not have acces to this page or ressource.">
+        <source>We are sorry, but you do not have acces to this page or ressource.</source>
+        <target>We are sorry, but you do not have acces to this page or ressource.</target>
+      </trans-unit>
+      <trans-unit id="7XYJ9IN" resname="The requested page couldn't be accessed.">
+        <source>The requested page couldn't be accessed.</source>
+        <target>The requested page couldn't be accessed.</target>
+      </trans-unit>
+      <trans-unit id="yzX3MyE" resname="Back to homepage">
+        <source>Back to homepage</source>
+        <target>Back to homepage</target>
+      </trans-unit>
+      <trans-unit id="O_7xIua" resname="Sorry, something went wrong">
+        <source>Sorry, something went wrong</source>
+        <target>Sorry, something went wrong</target>
+      </trans-unit>
+      <trans-unit id="9010RFH" resname="Internal server error">
+        <source>Internal server error</source>
+        <target>Internal server error</target>
+      </trans-unit>
+      <trans-unit id="qpRzOXv" resname="We are sorry, but you do not have access to this page or ressource.">
+        <source>We are sorry, but you do not have access to this page or ressource.</source>
+        <target>We are sorry, but you do not have access to this page or ressource.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
