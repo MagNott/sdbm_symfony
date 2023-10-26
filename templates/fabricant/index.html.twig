@@ -1,45 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% trans %}Fabricant index{% endtrans %}{% endblock %}
+{% block title %}
+	{% trans %}Fabricant index{% endtrans %}
+{% endblock %}
 
 {% block body %}
 
-<div class="container">
-{#Inclusion du formulaire de création dans la vue index#}
-{{ include('fabricant/_new.html.twig',{'button_label': 'Ajouter'|trans}) }}
+	<div
+		class="container">
+		{#Inclusion du formulaire de création dans la vue index#}
+		{{ include('fabricant/_new.html.twig',{'button_label': 'Ajouter'|trans}) }}
 
-<h2 class="text-center shadow bg-warning-subtle mt-5">{% trans %}Liste des fabricants{% endtrans %}</h2>
+		<h2 class="text-center shadow bg-warning-subtle mt-5">{% trans %}Liste des fabricants{% endtrans %}</h2>
 
 
-    <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
-        <thead>
-            <tr>
-                <th>{% trans %}IdFabricant{% endtrans %}</th>
-                <th>{% trans %}NomFabricant{% endtrans %}</th>
-                <th>{% trans %}actions{% endtrans %}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for fabricant in fabricants %}
-            <tr>
-                <td>{{ fabricant.idFabricant }}</td>
-                <td>{{ fabricant.nomFabricant }}</td>
-               <td class="d-flex">
-                    {# <a href="{{ path('app_fabricant_show', {'idFabricant': fabricant.idFabricant}) }}">show</a> #}
+		<table class="table table-warning table-hover table-striped text-center align-middle table-sm shadow-lg tableau table-responsive">
+			<thead>
+				<tr>
+					<th>{% trans %}IdFabricant{% endtrans %}</th>
+					<th>{% trans %}NomFabricant{% endtrans %}</th>
+					<th>{% trans %}actions{% endtrans %}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for fabricant in fabricants %}
+					<tr>
+						<td>{{ fabricant.idFabricant }}</td>
+						<td>{{ fabricant.nomFabricant }}</td>
+						<td
+							class="d-flex justify-content-center">
+							{# <a href="{{ path('app_fabricant_show', {'idFabricant': fabricant.idFabricant}) }}">show</a> #}
 
-                    <a href="{{ path('app_fabricant_edit', {'idFabricant': fabricant.idFabricant}) }}"><button class="btn btn-info btn-sm bi bi-pencil-square m-1"></button></a>
+							<a href="{{ path('app_fabricant_edit', {'idFabricant': fabricant.idFabricant}) }}">
+								<button class="btn btn-info btn-sm bi bi-pencil-square m-1"></button>
+							</a>
 
-                     {{ include('fabricant/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">{% trans %}no records found{% endtrans %}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+							{{ include('fabricant/_delete_form.html.twig') }}
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="3">{% trans %}no records found{% endtrans %}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 
-    {# <a href="{{ path('app_fabricant_new') }}">Create new</a> #}
-    </div>
+		{# <a href="{{ path('app_fabricant_new') }}">Create new</a> #}
+	</div>
 {% endblock %}

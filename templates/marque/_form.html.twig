@@ -1,30 +1,33 @@
 {{ form_start(form) }}
-    {# {{ form_widget(form) }} #}
+{# {{ form_widget(form) }} #}
 
-    <form>
+<form>
 	<div class="d-flex justify-content-center">
 		<div class="row">
-			<div class="form-group col-md-3">
+			<div class="form-group col-lg-3">
 				{{ form_label(form.nomMarque) }}
 				{{ form_errors(form.nomMarque) }}
 				{{ form_widget(form.nomMarque) }}
 			</div>
-			<div class="form-group col-md-3">
+			<div class="form-group col-lg-3">
 				{{ form_label(form.idFabricant) }}
 				{{ form_errors(form.idFabricant) }}
 				{{ form_widget(form.idFabricant) }}
 			</div>
-			<div class="form-group col-md-3">
+			<div class="form-group col-lg-3">
 				{{ form_label(form.idPays) }}
 				{{ form_errors(form.idPays) }}
 				{{ form_widget(form.idPays) }}
 			</div>
-            <div class="form-group col-md-3">
+			<div class="form-group col-lg-3">
+
 				<button class="btn btn-success btn-sm mt-4 ms-5">
 					<i class="bi bi-file-earmark-plus me-1"></i>
-					{{ button_label|default('Ajouter une Marque')| trans }}</button>
+					{{ button_label|default('Ajouter une Marque')| trans }}
+				</button>
+
 			</div>
 		</div>
 	</div>
-    
-{{ form_end(form) }}
+
+	{{ form_end(form) }}

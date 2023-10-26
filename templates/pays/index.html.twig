@@ -1,56 +1,60 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% trans %}Pays index{% endtrans %}{% endblock %}
+{% block title %}
+	{% trans %}Pays index{% endtrans %}
+{% endblock %}
 
 {% block body %}
 
-<div class="container">
-  
-{#Inclusion du formulaire de création dans la vue index#}
- {{ include('pays/_new.html.twig',{'button_label': 'Ajouter'|trans}) }}
+	<div
+		class="container">
 
- <h2 class="text-center shadow bg-warning-subtle mt-5">Liste des pays</h2>
+		{#Inclusion du formulaire de création dans la vue index#}
+		{{ include('pays/_new.html.twig',{'button_label': 'Ajouter'|trans}) }}
 
-    <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
-        <thead>
-            <tr>
-                <th>{% trans %}Code{% endtrans %}</th>
-                <th>{% trans %}Nom{% endtrans %}</th>
-                <th>{% trans %}Continent{% endtrans %}</th>
-                <th>{% trans %}Actions{% endtrans %}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for pay in pays %}
-            <tr>
-                <td>{{ pay.idPays }}</td>
-                <td>{{ pay.nomPays }}</td>
-                <td>{{ pay.idContinent.nomContinent }}</td>
-                <td class="d-flex">
-                    {#Ici bouton inutile car le show ne montre rien de plus que ce qui est contenu dans le tableau#}
-                    {# <a href="{{ path('app_pays_show', {'idPays': pay.idPays}) }}">show</a> #}
+		<h2 class="text-center shadow bg-warning-subtle mt-5">{% trans %}Liste des pays{% endtrans %}</h2>
 
-                    <a href="{{ path('app_pays_edit', {'idPays': pay.idPays}) }}"><button class="btn btn-info btn-sm bi bi-pencil-square m-1"></button></a>
+		<table class="table table-warning table-hover table-striped text-center table-sm shadow-lg tabPays table-responsive align-middle">
+			<thead>
+				<tr>
+					<th>{% trans %}Code{% endtrans %}</th>
+					<th>{% trans %}Nom{% endtrans %}</th>
+					<th>{% trans %}Continent{% endtrans %}</th>
+					<th>{% trans %}Actions{% endtrans %}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for pay in pays %}
+					<tr>
+						<td>{{ pay.idPays }}</td>
+						<td>{{ pay.nomPays }}</td>
+						<td>{{ pay.idContinent.nomContinent }}</td>
+						<td class="d-flex justify-content-center">
+							{#Ici bouton inutile car le show ne montre rien de plus que ce qui est contenu dans le tableau#}
+							{# <a href="{{ path('app_pays_show', {'idPays': pay.idPays}) }}">show</a> #}
 
-                    {#Ici buton inutile car on s'est servit du bouton du formulaire#}
-                     {# <a href="{{ path('app_pays_delete', {'idPays': pay.idPays}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer le pays ?');" >delete</a> #}
+								<a href="{{ path('app_pays_edit', {'idPays': pay.idPays}) }}"> <button class="btn btn-info btn-sm bi bi-pencil-square m-1"></button>
+							</a>
 
-                     {#Ici c'est le bouton du formulaire pour supprimer#}
-                     {{ include('pays/_delete_form.html.twig') }}
-                      
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">{% trans %}no records found{% endtrans %}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    </div>
+							{#Ici buton inutile car on s'est servit du bouton du formulaire#}
+							{# <a href="{{ path('app_pays_delete', {'idPays': pay.idPays}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer le pays ?');" >delete</a> #}
 
-    {# Ici on enlève le button prévu de base car la fonction est commenté puisqu'on a mis son corps dans index()#}
-    {# <a href="{{ path('app_pays_new') }}">Create new</a> #}
+							{#Ici c'est le bouton du formulaire pour supprimer#}
+						{{ include('pays/_delete_form.html.twig') }}
+
+					</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="3">{% trans %}no records found{% endtrans %}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	{# Ici on enlève le button prévu de base car la fonction est commenté puisqu'on a mis son corps dans index()#}
+	{# <a href="{{ path('app_pays_new') }}">Create new</a> #}
 
 {% endblock %}
 

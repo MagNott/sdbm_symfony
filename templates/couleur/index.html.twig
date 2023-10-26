@@ -1,42 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% trans %}Liste des couleurs{% endtrans %}{% endblock %}
+{% block title %}
+	{% trans %}Liste des couleurs{% endtrans %}
+{% endblock %}
 
 {% block body %}
-   
-    <div class="container">
+
+	<div class="container">
 		{{ include('couleur/_new.html.twig',{'button_label': 'Ajouter'|trans}) }}
 
 		<h2 class="text-center shadow bg-warning-subtle mt-5">{% trans %}Liste des couleurs{% endtrans %}</h2>
 
 
-    <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
-        <thead>
-            <tr>
-                <th>{% trans %}Id Couleur{% endtrans %}</th>
-                <th>{% trans %}Nom Couleur{% endtrans %}</th>
-                <th>{% trans %}actions{% endtrans %}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for couleur in couleurs %}
-            <tr>
-                <td>{{ couleur.idCouleur }}</td>
-                <td>{{ couleur.nomCouleur }}</td>
-                <td class="d-flex">
-                    {# <a href="{{ path('app_couleur_show', {'idCouleur': couleur.idCouleur}) }}">show</a> #}
-                    <a href="{{ path('app_couleur_edit', {'idCouleur': couleur.idCouleur}) }}"><button class="btn btn-info btn-sm bi bi-pencil-square m-1"></button></a>
-                {{ include('couleur/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">{% trans %}no records found{% endtrans %}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    </div>
+		<table class="table table-warning table-hover table-striped text-center align-middle table-sm shadow-lg tableau table-responsive">
+			<thead>
+				<tr>
+					<th>{% trans %}Id Couleur{% endtrans %}</th>
+					<th>{% trans %}Nom Couleur{% endtrans %}</th>
+					<th>{% trans %}actions{% endtrans %}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for couleur in couleurs %}
+					<tr>
+						<td>{{ couleur.idCouleur }}</td>
+						<td>{{ couleur.nomCouleur }}</td>
+						<td
+							class="d-flex justify-content-center">
+							{# <a href="{{ path('app_couleur_show', {'idCouleur': couleur.idCouleur}) }}">show</a> #}
+							<a href="{{ path('app_couleur_edit', {'idCouleur': couleur.idCouleur}) }}">
+								<button class="btn btn-info btn-sm bi bi-pencil-square m-1"></button>
+							</a>
+							{{ include('couleur/_delete_form.html.twig') }}
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="3">{% trans %}no records found{% endtrans %}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
 
-    {# <a href="{{ path('app_couleur_new') }}">Ajouter</a> #}
+	{# <a href="{{ path('app_couleur_new') }}">Ajouter</a> #}
 {% endblock %}

@@ -462,6 +462,10 @@
         <source>Le Type de bière a bien été supprimé !</source>
         <target>Le Type de bière a bien été supprimé !</target>
       </trans-unit>
+      <trans-unit id="fLHHrbz" resname="Liste des pays">
+        <source>Liste des pays</source>
+        <target>Liste des pays</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

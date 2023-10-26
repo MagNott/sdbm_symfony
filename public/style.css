@@ -1,0 +1,46 @@
+@media screen and (max-width: 783px){
+    .tableau {
+        width : 100% !important;
+    }
+  }
+
+
+  @media screen and (max-width: 767px){
+    .tabArticle thead th:nth-child(1),
+    .tabArticle tbody td:nth-child(1) 
+    {
+      display: none;
+    }
+    .tabArticle thead th:nth-child(4),
+    .tabArticle tbody td:nth-child(4) 
+    {
+      display: none;
+    }
+    .tabArticle thead th:nth-child(5),
+    .tabArticle tbody td:nth-child(5) 
+    {
+      display: none;
+    }
+    .tabArticle thead th:nth-child(7),
+    .tabArticle tbody td:nth-child(7) 
+    {
+      display: none;
+    }
+    .tabArticle thead th:nth-child(8),
+    .tabArticle tbody td:nth-child(8) 
+    {
+      display: none;
+    }
+    
+    .tabMarque thead th:nth-child(1),
+    .tabMarque tbody td:nth-child(1) 
+    {
+      display: none;
+    }
+
+    .tabPays thead th:nth-child(1),
+    .tabPays tbody td:nth-child(1) 
+    {
+      display: none;
+    }
+  }

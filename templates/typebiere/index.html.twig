@@ -1,41 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% trans %}Typebiere index{% endtrans %}{% endblock %}
+{% block title %}
+	{% trans %}Typebiere index{% endtrans %}
+{% endblock %}
 
 {% block body %}
 
-<div class="container">
+	<div class="container">
 		{{ include('typebiere/_new.html.twig',{'button_label': 'Ajouter'|trans}) }}
 
-    <h2 class="text-center shadow bg-warning-subtle mt-5">{% trans %}Liste des types de bières{% endtrans %}</h2>
+		<h2 class="text-center shadow bg-warning-subtle mt-5">{% trans %}Liste des types de bières{% endtrans %}</h2>
 
 
-   <table class="table table-warning table-hover table-striped text-center table-sm shadow-lg">
-        <thead>
-            <tr>
-                <th>{% trans %}Id Type{% endtrans %}</th>
-                <th>{% trans %}Type{% endtrans %}</th>
-                <th>{% trans %}actions{% endtrans %}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for typebiere in typebieres %}
-            <tr>
-                <td>{{ typebiere.idType }}</td>
-                <td>{{ typebiere.nomType }}</td>
-                <td class="d-flex">
-                    {# <a href="{{ path('app_typebiere_show', {'idType': typebiere.idType}) }}">show</a> #}
-                    <a href="{{ path('app_typebiere_edit', {'idType': typebiere.idType}) }}"><button class="btn btn-info btn-sm bi bi-pencil-square m-1"></button></a>
-                {{ include('typebiere/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">{% trans %}no records found{% endtrans %}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</div>
-    {# <a href="{{ path('app_typebiere_new') }}">Create new</a> #}
+		<table class="table table-warning table-hover table-striped text-center table-sm shadow-lg tableau table-responsive align-middle">
+			<thead>
+				<tr>
+					<th>{% trans %}Id Type{% endtrans %}</th>
+					<th>{% trans %}Type{% endtrans %}</th>
+					<th>{% trans %}actions{% endtrans %}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for typebiere in typebieres %}
+					<tr>
+						<td>{{ typebiere.idType }}</td>
+						<td>{{ typebiere.nomType }}</td>
+						<td
+							class="d-flex justify-content-center">
+							{# <a href="{{ path('app_typebiere_show', {'idType': typebiere.idType}) }}">show</a> #}
+							<a href="{{ path('app_typebiere_edit', {'idType': typebiere.idType}) }}">
+								<button class="btn btn-info btn-sm bi bi-pencil-square m-1"></button>
+							</a>
+							{{ include('typebiere/_delete_form.html.twig') }}
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="3">{% trans %}no records found{% endtrans %}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	{# <a href="{{ path('app_typebiere_new') }}">Create new</a> #}
 {% endblock %}

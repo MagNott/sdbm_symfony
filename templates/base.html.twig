@@ -3,95 +3,157 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}{% trans %}Bonjour!{% endtrans %}
+			{% block title %}
+				{% trans %}Bonjour!{% endtrans %}
 			{% endblock %}
 		</title>
 		{# <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"> #}
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-        <link rel="icon" src="{{ asset('favicon.ico') }}" type="image/x-icon">
-        {% block stylesheets %}{% endblock %}
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+		<link rel="icon" src="{{ asset('favicon.ico') }}" type="image/x-icon">
+
+		{% block stylesheets %}
+		{# <link rel="stylesheet" src="{{ asset('style.css') }}"> #}
+
+			<style>
+			@media screen and (max-width: 783px){
+				.tableau {
+					width : 100% !important;
+				}
+			}
+
+
+			@media screen and (max-width: 767px){
+				.tabArticle thead th:nth-child(1),
+				.tabArticle tbody td:nth-child(1) 
+				{
+				display: none;
+				}
+				.tabArticle thead th:nth-child(4),
+				.tabArticle tbody td:nth-child(4) 
+				{
+				display: none;
+				}
+				.tabArticle thead th:nth-child(5),
+				.tabArticle tbody td:nth-child(5) 
+				{
+				display: none;
+				}
+				.tabArticle thead th:nth-child(7),
+				.tabArticle tbody td:nth-child(7) 
+				{
+				display: none;
+				}
+				.tabArticle thead th:nth-child(8),
+				.tabArticle tbody td:nth-child(8) 
+				{
+				display: none;
+				}
+				
+				.tabMarque thead th:nth-child(1),
+				.tabMarque tbody td:nth-child(1) 
+				{
+				display: none;
+				}
+
+				.tabPays thead th:nth-child(1),
+				.tabPays tbody td:nth-child(1) 
+				{
+				display: none;
+				}
+			}
+			</style>
+
+
+		{% endblock %}
+		
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 		{% block javascripts %}{% endblock %}
 	</head>
 	<body>
-        <header>
-        <nav class="navbar navbar-expand-lg bg-primary bg-gradient rounded-bottom-2 mb-5" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="{{ asset('favicon.ico') }}">
-                    <strong class="me-5">SDBM</strong>
-                </a>
-                <!-- TOGGLER -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+		<header>
+			<nav class="navbar navbar-expand-lg bg-primary bg-gradient rounded-bottom-2 mb-5" data-bs-theme="dark">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="{{ path('app_main') }}">
+						<img src="{{ asset('favicon.ico') }}">
+						<strong class="me-5">SDBM</strong>
+					</a>
+					<!-- TOGGLER -->
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
 
-                <!-- Liens -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link me-4" href="{{ path('app_main') }}">{% trans %}Accueil{% endtrans %}</a>
-                        </li>
+					<!-- Liens -->
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a class="nav-link me-4" href="{{ path('app_main') }}">{% trans %}Accueil{% endtrans %}</a>
+							</li>
 
-                        <li class="nav-item">
-                            <strong><a class="nav-link" href="{{ path('app_article_index') }}">{% trans %}Articles{% endtrans %}</a></strong>
-                        </li>
-                        <li class="nav-item">
-                            <strong><a class="nav-link me-4" href="{{ path('app_ticket_index') }}">{% trans %}Tickets{% endtrans %}</a></strong>
-                        </li>
+							<li class="nav-item">
+								<strong>
+									<a class="nav-link" href="{{ path('app_article_index') }}">{% trans %}Articles{% endtrans %}</a>
+								</strong>
+							</li>
+							<li class="nav-item">
+								<strong>
+									<a class="nav-link me-4" href="{{ path('app_ticket_index') }}">{% trans %}Tickets{% endtrans %}</a>
+								</strong>
+							</li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_marque_index') }}">{% trans %}Marques{% endtrans %}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_fabricant_index') }}">{% trans %}Fabricants{% endtrans %}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_couleur_index') }}">{% trans %}Couleurs{% endtrans %}</a>
-                        </li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_marque_index') }}">{% trans %}Marques{% endtrans %}</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_fabricant_index') }}">{% trans %}Fabricants{% endtrans %}</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_couleur_index') }}">{% trans %}Couleurs{% endtrans %}</a>
+							</li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_typebiere_index') }}">{% trans %}Types de bière{% endtrans %}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_pays_index') }}">{% trans %}Pays{% endtrans %}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_continent_index') }}">{% trans %}Continents{% endtrans %}</a>
-                        </li>
-                    </ul>
-                    <div class="navbar-nav ms-auto">
-                        <a class="navbar-brand" href="{{path('app_langue_francais') }}">
-                            <img src="{{ asset('images/france.png') }}">
-                            </a>
-                            <a class="navbar-brand" href="{{path('app_langue_anglais') }}">
-                            <img src="{{ asset('images/royaume-uni.png') }}">
-                            </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        </header>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_typebiere_index') }}">{% trans %}Types de bière{% endtrans %}</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_pays_index') }}">{% trans %}Pays{% endtrans %}</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_continent_index') }}">{% trans %}Continents{% endtrans %}</a>
+							</li>
+						</ul>
+						<div class="navbar-nav ms-auto">
+							<a class="navbar-brand" href="{{path('app_langue_francais') }}">
+								<img src="{{ asset('images/france.png') }}">
+							</a>
+							<a class="navbar-brand" href="{{path('app_langue_anglais') }}">
+								<img src="{{ asset('images/royaume-uni.png') }}">
+							</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</header>
 
-        {% for label, messages in app.flashes %}
-   {% for message in messages %}
-       <div class="alert alert-{{ label }} alert-dismissible">
-           <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-           <strong>{{ label|trans }}</strong> {{ message|trans }}
-       </div>
-    {% endfor %}
- {% endfor %}
+		{% for label, messages in app.flashes %}
+			{% for message in messages %}
+				<div class="alert alert-{{ label }} alert-dismissible">
+					<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+					<strong>{{ label|trans }}</strong>
+					{{ message|trans }}
+				</div>
+			{% endfor %}
+		{% endfor %}
 
 		{% block body %}{% endblock %}
 
-        <hr>
-        <footer class="text-center mb-5">
-            SDBM | Année 2023-2024 Afpa territoire digital | Travail collaboratif ©Tous droits réservés aux co-auteurs
-            <a href="https://www.magnottdevlab.net/">MagNott</a>,
-            <a href="https://www.brnguyen.fr/">Briare</a> et
-            <a href="https://www.sylvainbiega.fr/">Sylvain</a>
-        </footer>
+		<hr>
+		<footer class="text-center mb-5">
+			SDBM | Année 2023-2024 Afpa territoire digital | Travail collaboratif ©Tous droits réservés aux co-auteurs
+			<a href="https://www.magnottdevlab.net/">MagNott</a>,
+			<a href="https://www.brnguyen.fr/">Briare</a>
+			et
+			<a href="https://www.sylvainbiega.fr/">Sylvain</a>
+		</footer>
 	</body>
 </html>
