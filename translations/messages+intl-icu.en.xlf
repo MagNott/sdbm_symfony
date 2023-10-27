@@ -127,7 +127,7 @@
       </trans-unit>
       <trans-unit id="bhJpRHH" resname="Marque index">
         <source>Marque index</source>
-        <target>Index Mark</target>
+        <target>Brands list</target>
       </trans-unit>
       <trans-unit id="bPbG0lT" resname="Liste des marques">
         <source>Liste des marques</source>
@@ -239,7 +239,7 @@
       </trans-unit>
       <trans-unit id="9ZSIxxt" resname="Hello MainController!">
         <source>Hello MainController!</source>
-        <target>Hello MainController!</target>
+        <target>Welcome on SDBM!</target>
       </trans-unit>
       <trans-unit id="_bUOs_e" resname="Société des Bières du Monde vous accueille sur son site !">
         <source>Société des Bières du Monde vous accueille sur son site !</source>
