@@ -27,6 +27,39 @@
 				</tr>
 			</thead>
 			<tbody>
+				<div class="col-12 d-flex align-items-center justify-content-between mb-2">
+					<div class="d-flex justify-content-start">
+						<a href="{{ pageNumber == 1 ? '#' : path('app_article_index') }}">
+							<button type="button" class="btn btn-outline-dark btn-sm me-1 {% if pageNumber == 1 %}btn-disabled{% endif %}" {% if pageNumber == 1 %} disabled {% endif %}>
+								<i class="bi bi-caret-left-fill hover-text-light">
+									Début de liste</i>
+							</button>
+						</a>
+						<a href="{{ pageNumber == 1 ? '#' : path('app_article_index', {'page': (pageNumber - 1) }) }}">
+							<button type="button" class="btn btn-outline-dark btn-sm me-1 {% if pageNumber == 1 %}btn-disabled{% endif %}" {% if pageNumber == 1 %} disabled {% endif %}>
+								<i class="bi bi-caret-left-fill hover-text-light">Page précédente</i>
+							</button>
+						</a>
+
+					</div>
+					<span class="text-dark text-center fw-bold">Page N°
+						{{pageNumber}}</span>
+					<div class="d-flex justify-content-end">
+						<a href="{{ pageNumber == pageNumberMax ? '#' : path('app_article_index', {'page': (pageNumber + 1) }) }}">
+							<button type="button" class="btn btn-outline-dark btn-sm me-1 {% if pageNumber == pageNumberMax %}btn-disabled{% endif %}" {% if pageNumber == pageNumberMax %} disabled {% endif %}>
+								<i class="bi bi-caret-right hover-text-light">
+									Page Suivante</i>
+							</button>
+						</a>
+
+						<a href="{{ pageNumber == pageNumberMax ? '#' : path('app_article_index', {'page': (pageNumberMax) }) }}">
+							<button type="button" class="btn btn-outline-dark btn-sm {% if pageNumber == pageNumberMax %}btn-disabled{% endif %}" {% if pageNumber == pageNumberMax %} disabled {% endif %}>
+								<i class="bi bi-caret-right-fill hover-text-light">
+									Fin de liste</i>
+							</button>
+						</a>
+					</div>
+				</div>
 				{% for article in articles %}
 					<tr>
 						<td>{{ article.idArticle }}</td>

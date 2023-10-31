@@ -13,67 +13,14 @@
 		<link rel="icon" src="{{ asset('favicon.ico') }}" type="image/x-icon">
 
 		{% block stylesheets %}
-		{# <link rel="stylesheet" src="{{ asset('style.css') }}"> #}
-
-			<style>
-			@media screen and (max-width: 783px){
-				.tableau {
-					width : 100% !important;
-				}
-			}
-
-
-			@media screen and (max-width: 767px){
-				.tabArticle thead th:nth-child(1),
-				.tabArticle tbody td:nth-child(1) 
-				{
-				display: none;
-				}
-				.tabArticle thead th:nth-child(4),
-				.tabArticle tbody td:nth-child(4) 
-				{
-				display: none;
-				}
-				.tabArticle thead th:nth-child(5),
-				.tabArticle tbody td:nth-child(5) 
-				{
-				display: none;
-				}
-				.tabArticle thead th:nth-child(7),
-				.tabArticle tbody td:nth-child(7) 
-				{
-				display: none;
-				}
-				.tabArticle thead th:nth-child(8),
-				.tabArticle tbody td:nth-child(8) 
-				{
-				display: none;
-				}
-				
-				.tabMarque thead th:nth-child(1),
-				.tabMarque tbody td:nth-child(1) 
-				{
-				display: none;
-				}
-
-				.tabPays thead th:nth-child(1),
-				.tabPays tbody td:nth-child(1) 
-				{
-				display: none;
-				}
-			}
-			</style>
-
-
+			<link rel="stylesheet" href="{{ asset('style.css') }}">
 		{% endblock %}
-		
 
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 		{% block javascripts %}{% endblock %}
 	</head>
 	<body>
 		<header>
-			<nav class="navbar navbar-expand-lg bg-primary bg-gradient rounded-bottom-2 mb-5" data-bs-theme="dark">
+			<nav class="navbar navbar-expand-lg bg-primary bg-gradient rounded-bottom-2 mb-2" data-bs-theme="dark">
 				<div class="container-fluid">
 					<a class="navbar-brand" href="{{ path('app_main') }}">
 						<img src="{{ asset('favicon.ico') }}">
