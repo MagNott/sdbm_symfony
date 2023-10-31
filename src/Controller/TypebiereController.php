@@ -17,99 +17,99 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[Route('/typebiere')]
 class TypebiereController extends AbstractController
 {
-    #[Route('/', name: 'app_typebiere_index', methods: ['GET', 'POST'])]
-    public function index(TypebiereRepository $typebiereRepository, EntityManagerInterface $entityManager, Request $request, TranslatorInterface $translator): Response
-    {
-        $typebiere = new Typebiere();
-        $form = $this->createForm(TypebiereType::class, $typebiere);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($typebiere);
-            $entityManager->flush();
-
-            // Génération du message d'information
-          $this->addFlash(
-            'success',
-            $translator->trans('Le Type de bière a bien été ajouté !')
-          );
-
-
-            return $this->redirectToRoute('app_typebiere_index', [], Response::HTTP_SEE_OTHER);
-        }
-        return $this->render('typebiere/index.html.twig', [
-            'typebieres' => $typebiereRepository->findAll(),
-            'typebiere' => $typebiere,
-            'form' => $form,
-        ]);
+  #[Route('/', name: 'app_typebiere_index', methods: ['GET', 'POST'])]
+  public function index(TypebiereRepository $typebiereRepository, EntityManagerInterface $entityManager, Request $request, TranslatorInterface $translator): Response
+  {
+    $typebiere = new Typebiere();
+    $form = $this->createForm(TypebiereType::class, $typebiere);
+    $form->handleRequest($request);
+    
+    if ($form->isSubmitted() && $form->isValid()) {
+      $entityManager->persist($typebiere);
+      $entityManager->flush();
+      
+      // Génération du message d'information
+      $this->addFlash(
+        'success',
+        $translator->trans('Le Type de bière a bien été ajouté !')
+      );
+      
+      
+      return $this->redirectToRoute('app_typebiere_index', [], Response::HTTP_SEE_OTHER);
     }
-
-    // #[Route('/new', name: 'app_typebiere_new', methods: ['GET', 'POST'])]
-    // public function new(Request $request, EntityManagerInterface $entityManager): Response
-    // {
+    return $this->render('typebiere/index.html.twig', [
+      'typebieres' => $typebiereRepository->findAll(),
+      'typebiere' => $typebiere,
+      'form' => $form,
+    ]);
+  }
+  
+  // #[Route('/new', name: 'app_typebiere_new', methods: ['GET', 'POST'])]
+  // public function new(Request $request, EntityManagerInterface $entityManager): Response
+  // {
     //     $typebiere = new Typebiere();
     //     $form = $this->createForm(TypebiereType::class, $typebiere);
     //     $form->handleRequest($request);
-
+    
     //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $entityManager->persist($typebiere);
-    //         $entityManager->flush();
-
-    //         return $this->redirectToRoute('app_typebiere_index', [], Response::HTTP_SEE_OTHER);
-    //     }
-
-    //     return $this->render('typebiere/new.html.twig', [
-    //         'typebiere' => $typebiere,
-    //         'form' => $form,
-    //     ]);
-    // }
-
-    #[Route('/{idType}', name: 'app_typebiere_show', methods: ['GET'])]
-    public function show(Typebiere $typebiere): Response
-    {
-        return $this->render('typebiere/show.html.twig', [
-            'typebiere' => $typebiere,
-        ]);
+      //         $entityManager->persist($typebiere);
+      //         $entityManager->flush();
+      
+      //         return $this->redirectToRoute('app_typebiere_index', [], Response::HTTP_SEE_OTHER);
+      //     }
+      
+      //     return $this->render('typebiere/new.html.twig', [
+        //         'typebiere' => $typebiere,
+        //         'form' => $form,
+        //     ]);
+        // }
+  
+  #[Route('/{idType}', name: 'app_typebiere_show', methods: ['GET'])]
+  public function show(Typebiere $typebiere): Response
+  {
+    return $this->render('typebiere/show.html.twig', [
+      'typebiere' => $typebiere,
+    ]);
+  }
+  
+  #[Route('/{idType}/edit', name: 'app_typebiere_edit', methods: ['GET', 'POST'])]
+  public function edit(Request $request, Typebiere $typebiere, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
+  {
+    $form = $this->createForm(TypebiereType::class, $typebiere);
+    $form->handleRequest($request);
+    
+    if ($form->isSubmitted() && $form->isValid()) {
+      $entityManager->flush();
+      
+      // Génération du message d'information
+      $this->addFlash(
+        'info',
+        $translator->trans('Le Type de bière a bien été modifié !')
+      );
+      
+      return $this->redirectToRoute('app_typebiere_index', [], Response::HTTP_SEE_OTHER);
     }
-
-    #[Route('/{idType}/edit', name: 'app_typebiere_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Typebiere $typebiere, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
-    {
-        $form = $this->createForm(TypebiereType::class, $typebiere);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
-
-             // Génération du message d'information
-          $this->addFlash(
-            'info',
-            $translator->trans('Le Type de bière a bien été modifié !')
-          );
-
-            return $this->redirectToRoute('app_typebiere_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('typebiere/edit.html.twig', [
-            'typebiere' => $typebiere,
-            'form' => $form,
-        ]);
+    
+    return $this->render('typebiere/edit.html.twig', [
+      'typebiere' => $typebiere,
+      'form' => $form,
+    ]);
+  }
+  
+  #[Route('/{idType}', name: 'app_typebiere_delete', methods: ['POST'])]
+  public function delete(Request $request, Typebiere $typebiere, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
+  {
+    if ($this->isCsrfTokenValid('delete'.$typebiere->getIdType(), $request->request->get('_token'))) {
+      $entityManager->remove($typebiere);
+      $entityManager->flush();
+      
+      // Génération du message d'information
+      $this->addFlash(
+        'danger',
+        $translator->trans('Le Type de bière a bien été supprimé !')
+      );
     }
-
-    #[Route('/{idType}', name: 'app_typebiere_delete', methods: ['POST'])]
-    public function delete(Request $request, Typebiere $typebiere, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$typebiere->getIdType(), $request->request->get('_token'))) {
-            $entityManager->remove($typebiere);
-            $entityManager->flush();
-
-            // Génération du message d'information
-          $this->addFlash(
-            'danger',
-            $translator->trans('Le Type de bière a bien été supprimé !')
-          );
-        }
-
-        return $this->redirectToRoute('app_typebiere_index', [], Response::HTTP_SEE_OTHER);
-    }
+    
+    return $this->redirectToRoute('app_typebiere_index', [], Response::HTTP_SEE_OTHER);
+  }
 }

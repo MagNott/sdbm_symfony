@@ -13,25 +13,26 @@ class LangueController extends AbstractController
     public function anglais(Request $request): Response
     {
         $request->getSession()->set('_locale', 'en');
-
+        
         return $this->redirect($request->server->get('HTTP_REFERER'));
-
+        
         // return $this->render('langue/index.html.twig', [
-        //     'controller_name' => 'LangueController',
-        // ]);
-    }
-
-    #[Route('/langue/francais', name: 'app_langue_francais')]
-    public function francais(Request $request): Response
-    {
-        $request->getSession()->set('_locale', 'fr');
-
-        return $this->redirect($request->server->get('HTTP_REFERER'));
-
-        // return $this->render('langue/index.html.twig', [
-        //     'controller_name' => 'LangueController',
-        // ]);
-    }
-
-   }
-
+            //     'controller_name' => 'LangueController',
+            // ]);
+        }
+        
+        #[Route('/langue/francais', name: 'app_langue_francais')]
+        public function francais(Request $request): Response
+        {
+            $request->getSession()->set('_locale', 'fr');
+            
+            return $this->redirect($request->server->get('HTTP_REFERER'));
+            
+            // return $this->render('langue/index.html.twig', [
+                //     'controller_name' => 'LangueController',
+                // ]);
+            }
+            
+        }
+        
+        
