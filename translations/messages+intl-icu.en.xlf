@@ -463,6 +463,30 @@
         <source>Liste des pays</source>
         <target>List of countries</target>
       </trans-unit>
+      <trans-unit id="NmPNYll" resname="Nombre de marques de bières">
+        <source>Nombre de marques de bières</source>
+        <target>Number of beer's brands</target>
+      </trans-unit>
+      <trans-unit id="Qj58S5J" resname="Début de liste">
+        <source>Début de liste</source>
+        <target>Start of list</target>
+      </trans-unit>
+      <trans-unit id="AwHUENs" resname="Page précédente">
+        <source>Page précédente</source>
+        <target>previous page</target>
+      </trans-unit>
+      <trans-unit id="y7GHGYP" resname="Page N°">
+        <source>Page N°</source>
+        <target>Page N°</target>
+      </trans-unit>
+      <trans-unit id="EHM_eP9" resname="Page suivante">
+        <source>Page suivante</source>
+        <target>Next page</target>
+      </trans-unit>
+      <trans-unit id="NFvvoM3" resname="Fin de liste">
+        <source>Fin de liste</source>
+        <target>End of list</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

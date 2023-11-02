@@ -466,6 +466,30 @@
         <source>Liste des pays</source>
         <target>Liste des pays</target>
       </trans-unit>
+      <trans-unit id="NmPNYll" resname="Nombre de marques de bières">
+        <source>Nombre de marques de bières</source>
+        <target>Nombre de marques de bières</target>
+      </trans-unit>
+      <trans-unit id="Qj58S5J" resname="Début de liste">
+        <source>Début de liste</source>
+        <target>Début de liste</target>
+      </trans-unit>
+      <trans-unit id="AwHUENs" resname="Page précédente">
+        <source>Page précédente</source>
+        <target>Page précédente</target>
+      </trans-unit>
+      <trans-unit id="y7GHGYP" resname="Page N°">
+        <source>Page N°</source>
+        <target>Page N°</target>
+      </trans-unit>
+      <trans-unit id="EHM_eP9" resname="Page suivante">
+        <source>Page suivante</source>
+        <target>Page suivante</target>
+      </trans-unit>
+      <trans-unit id="NFvvoM3" resname="Fin de liste">
+        <source>Fin de liste</source>
+        <target>Fin de liste</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
