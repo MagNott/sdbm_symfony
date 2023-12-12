@@ -35,8 +35,8 @@ class ContinentRepository extends ServiceEntityRepository
         // Construit la requête
         $querybuilder->select('continent.nomContinent AS nom')
             ->addSelect('COUNT(marque.idMarque) AS marqueCount')
-            ->innerJoin('continent.pays', 'pays') // suppose que l'entité Continent a une relation 'pays'
-            ->innerJoin('pays.marques', 'marque') // suppose que l'entité Pays a une relation 'marque'
+            ->innerJoin('continent.pays', 'pays') 
+            ->innerJoin('pays.marques', 'marque') 
             ->groupBy('continent.idContinent')
             ->orderBy('marqueCount', 'DESC')
             ->setMaxResults(5);

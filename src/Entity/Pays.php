@@ -100,17 +100,17 @@ class Pays
 
 
 //TEST
-public function getIdMarque(): ?Marque
-{
-    return $this->idMarque;
-}
+// public function getIdMarque(): ?Marque
+// {
+//     return $this->idMarque;
+// }
 
-public function setIdMarque(?Marque $idMarque): static
-{
-    $this->idMarque = $idMarque;
+// public function setIdMarque(?Marque $idMarque): static
+// {
+//     $this->idMarque = $idMarque;
 
-    return $this;
-}   
+//     return $this;
+// }   
 
 //FIN TEST
 

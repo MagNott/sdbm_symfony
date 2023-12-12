@@ -136,11 +136,18 @@
 			</nav>
 		</header>
 
+		{# Boucle sur tous les messages flash qui ont été définis dans la session #}
 		{% for label, messages in app.flashes %}
+			{# Boucle sur chaque message pour un type de label donné (par exemple 'success', 'error', etc.) #}
 			{% for message in messages %}
+				{# Crée un élément div avec une classe Bootstrap pour le style du message flash. 
+          		 La classe varie en fonction du type de message (label). #}
 				<div class="alert alert-{{ label }} alert-dismissible">
+				 	{# Bouton pour fermer l'alerte, avec Bootstrap qui prend en charge le comportement de fermeture #}
 					<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+					{# Affiche le label du message flash (par exemple 'Success'), traduit dans la langue courante de l'utilisateur #}
 					<strong>{{ label|trans }}</strong>
+					 {# Affiche le message flash proprement dit, également traduit dans la langue courante de l'utilisateur #}
 					{{ message|trans }}
 				</div>
 			{% endfor %}
